@@ -1,14 +1,14 @@
 <!doctype html>
 <html
-  lang="en"
+  lang="FR"
   data-ws-project="ba445ea6-bf5a-4594-91b8-031c589bc85c"
-  data-ws-last-published="2026-06-30T08:24:51.239Z"
+  data-ws-last-published="2026-07-01T09:00:21.032Z"
 >
   <head>
     <link
       rel="stylesheet"
       type="text/css"
-      href="/assets/static/app_generated_index-6937cd5a.Ce2f93wm.css"
+      href="/assets/static/app_generated_index-6937cd5a.CIp3g7BW.css"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -29,7 +29,6 @@
     <meta property="og:title" content="Démo" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AR Production" />
-    <meta name="robots" content="noindex, nofollow" />
     <meta
       name="description"
       content="Découvrez quelques-unes de nos réalisations"
@@ -49,10 +48,122 @@
     </script>
   </head>
   <body class="w-element">
+    <div class="w-html-embed">
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Liste des éléments cliquables
+          const birkinDiv = document.getElementById("birkin");
+          const calissonDiv = document.getElementById("calisson");
+          const nikeDiv = document.getElementById("nike");
+          const diamondRingDiv = document.getElementById("diamond-ring");
+          const firenzeDiv = document.getElementById("firenze");
+
+          const iframe = document.getElementById("viewerIframe");
+          const fullScreenBtn = document.getElementById("full-screen");
+
+          if (iframe) {
+            // Gestion du changement de source pour chaque produit
+            if (birkinDiv) {
+              birkinDiv.addEventListener("click", function () {
+                iframe.src = "https://hermes-birkin.vercel.app";
+              });
+            }
+            if (calissonDiv) {
+              calissonDiv.addEventListener("click", function () {
+                iframe.src =
+                  "https://cdn.soft8soft.com/AROAJSY2GOEHMOFUVPIOE:e577ee4a7d/Tablacasa-Chaise-Calisson%20-%20API/Tablacasa-Chaise-Calisson.html?hideprice";
+              });
+            }
+            if (nikeDiv) {
+              nikeDiv.addEventListener("click", function () {
+                iframe.src = "https://cloudflyer-4.vercel.app/";
+              });
+            }
+            if (diamondRingDiv) {
+              diamondRingDiv.addEventListener("click", function () {
+                iframe.src =
+                  "https://blue-diamond-ring-configurator.vercel.app/";
+              });
+            }
+            if (firenzeDiv) {
+              firenzeDiv.addEventListener("click", function () {
+                iframe.src = "https://mf-international-firenze.vercel.app/";
+              });
+            }
+
+            let isiOSFullscreen = false;
+
+            // Gestion du mode Plein Écran
+            if (fullScreenBtn) {
+              fullScreenBtn.addEventListener("click", function () {
+                // Détection d'iOS (iPhone / iPad)
+                const isIOS =
+                  /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                  (navigator.platform === "MacIntel" &&
+                    navigator.maxTouchPoints > 1);
+
+                if (isIOS) {
+                  // Alternative pour iOS qui ne supporte pas requestFullscreen sur iframe
+                  if (!isiOSFullscreen) {
+                    iframe.style.position = "fixed";
+                    iframe.style.top = "0";
+                    iframe.style.left = "0";
+                    iframe.style.width = "100vw";
+                    iframe.style.height = "100vh";
+                    iframe.style.zIndex = "99999";
+                    iframe.style.backgroundColor = "white";
+
+                    // Maintien du bouton visible au-dessus de l'iframe
+                    fullScreenBtn.style.position = "fixed";
+                    fullScreenBtn.style.top = "20px";
+                    fullScreenBtn.style.right = "20px";
+                    fullScreenBtn.style.zIndex = "100000";
+
+                    isiOSFullscreen = true;
+                  } else {
+                    iframe.style.position = "";
+                    iframe.style.top = "";
+                    iframe.style.left = "";
+                    iframe.style.width = "";
+                    iframe.style.height = "";
+                    iframe.style.zIndex = "";
+                    iframe.style.backgroundColor = "";
+
+                    fullScreenBtn.style.position = "";
+                    fullScreenBtn.style.top = "";
+                    fullScreenBtn.style.right = "";
+                    fullScreenBtn.style.zIndex = "";
+
+                    isiOSFullscreen = false;
+                  }
+                } else {
+                  // Comportement standard pour PC et Android
+                  if (!document.fullscreenElement) {
+                    iframe.style.backgroundColor = "white";
+                    iframe.requestFullscreen().catch((err) => {
+                      console.error(`Erreur : ${err.message}`);
+                    });
+                  } else {
+                    document.exitFullscreen();
+                  }
+                }
+              });
+            }
+
+            // Réinitialisation du fond si sortie du plein écran natif (PC/Android)
+            document.addEventListener("fullscreenchange", function () {
+              if (!document.fullscreenElement) {
+                iframe.style.backgroundColor = "";
+              }
+            });
+          }
+        });
+      </script>
+    </div>
     <div style="display: contents">
       <div style="display: contents">
         <div id="nav-1" class="w-element w-navbar">
-          <a id="logo-link" class="w-element w-element-310" href="/#logo-link"
+          <a id="logo-link" class="w-element w-element-301" href="/#logo-link"
             ><img
               alt=""
               width="4539"
@@ -109,7 +220,7 @@
             class="w-button w-button-2"
             aria-haspopup="dialog"
             aria-expanded="false"
-            aria-controls="radix-:Rgm:"
+            aria-controls="radix-:Rh6:"
             data-state="closed"
           >
             <div class="w-html-embed w-hamburger-menu-svg">
@@ -373,6 +484,7 @@
                     </svg></div></a
                 ><a
                   href="https://www.instagram.com/ar_production_3d?igsh=MXZtdXM0M2g5dGxseg%3D%3D&amp;utm_source=qr"
+                  target="_blank"
                   class="w-element w-element-160"
                   ><div class="w-html-embed">
                     <svg
@@ -408,6 +520,7 @@
                     </svg></div></a
                 ><a
                   href="https://wa.me/33634101925"
+                  target="_blank"
                   class="w-element w-nathan-arditti-1"
                   ><div class="w-html-embed">
                     <svg
@@ -433,6 +546,7 @@
                     </svg></div></a
                 ><a
                   href="https://www.linkedin.com/company/ar-production-3d"
+                  target="_blank"
                   class="w-element w-element-162"
                   ><div class="w-html-embed">
                     <svg
@@ -466,67 +580,6 @@
         </footer>
       </div>
     </div>
-    <div class="w-html-embed">
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          // Liste des éléments cliquables
-          const birkinDiv = document.getElementById("birkin");
-          const calissonDiv = document.getElementById("calisson");
-          const nikeDiv = document.getElementById("nike");
-          const diamondRingDiv = document.getElementById("diamond-ring");
-          const firenzeDiv = document.getElementById("firenze");
-
-          const iframe = document.getElementById("viewerIframe");
-          const fullScreenBtn = document.getElementById("full-screen");
-
-          if (iframe) {
-            // Gestion du changement de source pour chaque produit
-            if (birkinDiv) {
-              birkinDiv.addEventListener("click", function () {
-                iframe.src = "https://hermes-birkin.vercel.app";
-              });
-            }
-            if (calissonDiv) {
-              calissonDiv.addEventListener("click", function () {
-                iframe.src =
-                  "https://cdn.soft8soft.com/AROAJSY2GOEHMOFUVPIOE:e577ee4a7d/Tablacasa-Chaise-Calisson%20-%20API/Tablacasa-Chaise-Calisson.html?hideprice";
-              });
-            }
-            if (nikeDiv) {
-              nikeDiv.addEventListener("click", function () {
-                iframe.src = "https://cloudflyer-4.vercel.app/";
-              });
-            }
-            if (diamondRingDiv) {
-              diamondRingDiv.addEventListener("click", function () {
-                iframe.src =
-                  "https://blue-diamond-ring-configurator.vercel.app/";
-              });
-            }
-            if (firenzeDiv) {
-              firenzeDiv.addEventListener("click", function () {
-                iframe.src = "https://mf-international-firenze.vercel.app/";
-              });
-            }
-
-            // Gestion du mode Plein Écran avec fond blanc
-            if (fullScreenBtn) {
-              fullScreenBtn.addEventListener("click", function () {
-                if (!document.fullscreenElement) {
-                  // Force le fond en blanc pour les viewers transparents
-                  iframe.style.backgroundColor = "white";
-                  iframe.requestFullscreen().catch((err) => {
-                    console.error(`Erreur : ${err.message}`);
-                  });
-                } else {
-                  document.exitFullscreen();
-                }
-              });
-            }
-          }
-        });
-      </script>
-    </div>
     <script id="vike_pageContext" type="application/json">
       {
         "_urlRewrite": null,
@@ -544,8 +597,8 @@
           "pageMeta": {
             "title": "Démo",
             "description": "Découvrez quelques-unes de nos réalisations",
-            "excludePageFromSearch": true,
-            "language": "",
+            "excludePageFromSearch": false,
+            "language": "FR",
             "socialImageAssetName": "!undefined",
             "socialImageUrl": "",
             "status": "!undefined",
@@ -560,23 +613,18 @@
       {}
     </script>
     <script
-      src="/assets/entries/entry-server-routing.Bz6X1WHV.js"
+      src="/assets/entries/entry-server-routing.DDw62l30.js"
       type="module"
       async
     ></script>
     <link
       rel="modulepreload"
-      href="/assets/entries/pages_demo.DC2pt_Af.js"
+      href="/assets/entries/pages_demo.BYKaMhaX.js"
       as="script"
       type="text/javascript"
     /><link
       rel="modulepreload"
-      href="/assets/chunks/chunk-C9xuCn4r.js"
-      as="script"
-      type="text/javascript"
-    /><link
-      rel="modulepreload"
-      href="/assets/chunks/chunk-ckwbz45p.js"
+      href="/assets/chunks/chunk-2xCDDjxQ.js"
       as="script"
       type="text/javascript"
     />
