@@ -1,2 +1,0 @@
-import{r as e,j as s}from"./chunk-2xCDDjxQ.js";//! SPDX-License-Identifier: LicenseRef-Webstudio,Inc-Proprietary
-const t=e.forwardRef(({slidingWindow:i=5,easing:a="linear",splitBy:n="char",...r},o)=>s.jsx("div",{ref:o,...r})),d="AnimateText";t.displayName=d;const f=e.forwardRef(({slidingWindow:i=1,easing:a="linear",...n},r)=>s.jsx("div",{ref:r,...n})),m="StaggerAnimation";f.displayName=m;const p=()=>e.forwardRef((i,a)=>s.jsx("div",{ref:a,...i})),l=p(),x="VideoAnimation";l.displayName=x;export{l as m,t};
