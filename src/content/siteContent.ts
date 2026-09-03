@@ -29,9 +29,9 @@ export const homeContent = {
     solutions: {
       eyebrow: 'LE DIGITAL QUI SÉDUIT', title: 'Nos Solutions interactives',
       items: [
-        { title: 'Viewer 3D', description: 'Proposez une expérience de visualisation immersive et interactive sous tous les angles.', action: 'Découvrir le viewer', image: '/assets/Viewer_1_oFsawvkvRLIC5NVXlUCf-.webp', to: '/viewer' },
+        { title: 'Viewer 3D', description: 'Proposez une expérience de visualisation immersive et interactive sous tous les angles.', action: 'Découvrir le viewer', image: '/assets/Viewer_2.webp', to: '/viewer' },
         { title: 'Configurateur 3D', description: 'Offrez la possibilité de personnaliser entièrement vos produits en temps réel.', action: 'Découvrir le configurateur', image: '/assets/Configurator_1_PvMB6tzS7sOPTEdZVWNid.webp', to: '/configurator' },
-        { title: 'AR', description: "Projetez instantanément vos produits dans l'environnement réel de vos clients.", action: 'Découvrir la AR', image: '/assets/AR_1_ZnSCUjqBxF_LWEraqYzyx.webp', to: '/ar' },
+        { title: 'AR', description: "Projetez instantanément vos produits dans l'environnement réel de vos clients.", action: 'Découvrir la AR', image: '/assets/AR_2.webp', to: '/ar' },
       ],
     },
     trust: 'ILS NOUS FONT CONFIANCE',
@@ -61,9 +61,9 @@ export const homeContent = {
     solutions: {
       eyebrow: 'DIGITAL that captivates', title: 'Our interactive solutions',
       items: [
-        { title: 'Viewer 3D', description: 'Offer an immersive and interactive viewing experience from every angle.', action: 'Discover the viewer', image: '/assets/Viewer_1_oFsawvkvRLIC5NVXlUCf-.webp', to: '/viewer' },
+        { title: 'Viewer 3D', description: 'Offer an immersive and interactive viewing experience from every angle.', action: 'Discover the viewer', image: '/assets/Viewer_2.webp', to: '/viewer' },
         { title: '3D Configurator', description: 'Offer the ability to fully customize your products in real time.', action: 'Discover the configurator', image: '/assets/Configurator_1_PvMB6tzS7sOPTEdZVWNid.webp', to: '/configurator' },
-        { title: 'AR', description: "Instantly project your products into your customers' real environment.", action: 'Discover AR', image: '/assets/AR_1_ZnSCUjqBxF_LWEraqYzyx.webp', to: '/ar' },
+        { title: 'AR', description: "Instantly project your products into your customers' real environment.", action: 'Discover AR', image: '/assets/AR_2.webp', to: '/ar' },
       ],
     },
     trust: 'THEY TRUST US',

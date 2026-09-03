@@ -9,7 +9,7 @@ import './Demo.css';
 export default function Demo() {
   const { locale } = useLanguage();
   const content = demoContent[locale];
-  const [selectedId, setSelectedId] = useState<DemoId>('calisson');
+  const [selectedId, setSelectedId] = useState<DemoId>('omega-speedmaster');
   const [fallbackFullscreen, setFallbackFullscreen] = useState(false);
   const viewerRef = useRef<HTMLDivElement>(null);
   const selectorRef = useRef<HTMLDivElement>(null);

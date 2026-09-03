@@ -19,12 +19,14 @@
 .price-card__price strong { font-family: 'Manrope', sans-serif; font-size: clamp(42px, 4vw, 64px); font-weight: 620; letter-spacing: -.06em; line-height: 1; }
 .price-card__price small { color: #888; font-size: 10px; margin-left: 4px; }
 .price-card__price em { color: #888; display: block; font-size: 9px; font-style: normal; margin-top: 8px; }
-.price-card__creation { color: #737373; font-size: 12px; line-height: 1.6; margin-top: 24px; min-height: 40px; }
+.price-card__creation { color: #737373; font-size: 12px; line-height: 1.6; margin-top: 24px; min-height: 58px; }
 .price-card__hosting { font-size: 11px; margin-top: 22px; }
 .price-card__monthly { align-items: center; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; display: flex; justify-content: space-between; margin-top: 25px; padding: 18px 0; }
 .is-popular .price-card__monthly { border-color: #333; }
 .price-card__monthly span { color: #888; font-size: 10px; }
 .price-card__monthly strong { font-size: 13px; }
+.price-card__commitment { color: #888; display: block; font-size: 10px; font-weight: 600; margin-top: 8px; }
+.is-popular .price-card__commitment { color: #aaa; }
 .price-card ul { display: grid; gap: 14px; list-style: none; margin: 30px 0 38px; padding: 0; }
 .price-card li { align-items: center; display: flex; font-size: 12px; gap: 10px; }
 .price-card li > span { align-items: center; background: #f1f1f1; border-radius: 50%; color: #111; display: flex; flex: 0 0 24px; height: 24px; justify-content: center; }
@@ -54,5 +56,21 @@
 .pricing-cta > div > div { display: flex; gap: 12px; justify-content: center; margin-top: 38px; }
 .pricing-cta__outline { border-color: #555; color: #fff; }
 
-@media (max-width: 991px) { .pricing-grid { grid-template-columns: 1fr; } .price-card { min-height: 570px; } .agency-banner { grid-template-columns: 1fr; } .agency-banner__visual { min-height: 470px; } }
-@media (max-width: 767px) { .pricing-hero { padding-bottom: 85px; padding-top: 75px; } .pricing-promises { align-items: center; flex-direction: column; gap: 14px; } .pricing-section { padding-bottom: 95px; } .price-card { min-height: 0; padding: 28px; } .agency-banner { border-radius: 0; margin-bottom: 95px; padding: 12px; } .agency-banner__content { padding: 38px 18px 28px; } .agency-banner__visual { border-radius: 24px; min-height: 360px; } .pricing-cta { padding: 95px 0; } .pricing-cta > div > div { align-items: stretch; flex-direction: column; margin-inline: auto; width: min(100%, 330px); } }
+.pricing-coverage { padding-bottom: 120px; }
+.pricing-coverage__heading { margin-bottom: 46px; text-align: center; }
+.pricing-coverage__heading .eyebrow { margin-bottom: 14px; }
+.pricing-coverage__heading h2 { font-size: clamp(34px, 4vw, 56px); font-weight: 640; letter-spacing: -.05em; }
+.pricing-coverage__heading p { color: #777; font-size: 14px; margin-inline: auto; margin-top: 12px; max-width: 650px; }
+.pricing-coverage__grid { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); }
+.pricing-coverage__card { background: #fafafa; border: 1px solid #eaeaea; border-radius: 24px; display: flex; gap: 16px; padding: 26px; }
+.pricing-coverage__icon { align-items: center; background: #111; border-radius: 50%; color: #fff; display: flex; flex: 0 0 32px; height: 32px; justify-content: center; }
+.pricing-coverage__card h3 { font-size: 16px; font-weight: 650; letter-spacing: -.02em; }
+.pricing-coverage__card p { color: #666; font-size: 13px; line-height: 1.6; margin-top: 6px; }
+.pricing-coverage__notice { align-items: center; background: #f4f4f4; border: 1px solid #e5e5e5; border-radius: 16px; color: #333; display: flex; font-size: 13px; font-weight: 550; gap: 12px; justify-content: center; margin-top: 32px; padding: 18px 24px; text-align: center; }
+.pricing-coverage__notice svg { color: #111; flex-shrink: 0; }
+.pricing-coverage__terms { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 20px; display: grid; gap: 14px; margin-top: 18px; padding: 22px 26px; }
+.pricing-coverage__term-item { color: #666; font-size: 12px; line-height: 1.6; }
+.pricing-coverage__term-item strong { color: #111; font-weight: 650; }
+
+@media (max-width: 991px) { .pricing-grid, .pricing-coverage__grid { grid-template-columns: 1fr; } .price-card { min-height: 570px; } .agency-banner { grid-template-columns: 1fr; } .agency-banner__visual { min-height: 470px; } }
+@media (max-width: 767px) { .pricing-hero { padding-bottom: 85px; padding-top: 75px; } .pricing-promises { align-items: center; flex-direction: column; gap: 14px; } .pricing-section { padding-bottom: 95px; } .pricing-coverage { padding-bottom: 80px; } .price-card { min-height: 0; padding: 28px; } .pricing-coverage__notice { flex-direction: column; text-align: center; gap: 8px; } .agency-banner { border-radius: 0; margin-bottom: 95px; padding: 12px; } .agency-banner__content { padding: 38px 18px 28px; } .agency-banner__visual { border-radius: 24px; min-height: 360px; } .pricing-cta { padding: 95px 0; } .pricing-cta > div > div { align-items: stretch; flex-direction: column; margin-inline: auto; width: min(100%, 330px); } }

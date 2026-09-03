@@ -87,52 +87,222 @@ export const solutionContent = {
 
 export const pricingContent = {
   fr: {
-    seo: { title: 'Pricing', description: 'Nos tarifs transparents 2026' },
-    eyebrow: 'INVESTISSEMENT SPATIAL', title: 'Nos tarifs transparents 2026', promises: ['Prix par produit + réduction volume', 'Intégration unique', 'Devis gratuit en 24h'], hosting: 'Hébergement & Maintenance',
-    choose: 'Choisir cette offre', popular: 'POPULAIRE', from: 'À partir de', perProduct: '/produit', depending: '(selon la complexité)', monthly: 'Abonnement mensuel', custom: 'Sur devis',
+    seo: { title: 'Tarifs', description: 'Nos tarifs transparents 2026 — AR Production' },
+    eyebrow: 'INVESTISSEMENT & RENTABILITÉ', title: 'Des tarifs clairs, adaptés à vos ambitions',
+    promises: ['Prix hors taxes (HT)', 'Engagement initial de 12 mois', 'Hébergement CDN & maintenance inclus', 'Devis personnalisé sous 24h'],
+    hosting: 'Abonnement Cloud & Infrastructure',
+    commitment: 'Prix HT • Engagement initial 12 mois',
+    choose: 'Choisir cette offre', popular: 'POPULAIRE', from: 'À partir de', perProduct: '/ produit', depending: '', monthly: 'Abonnement mensuel', custom: 'Sur devis',
     sections: [
       {
-        title: '1. Viewer 3D', subtitle: 'Visualisez vos produits sous tous les angles avec une fidélité photoréaliste.',
+        title: '1. Viewer 3D', subtitle: 'Offrez une manipulation 360° fluide et photoréaliste directement sur votre boutique en ligne.',
+        unit: '/ produit',
         cards: [
-          { name: 'Standard', audience: 'Idéal pour le PME', price: '100€', creation: "Création d'un modèle HD personnalisé", monthlyPrice: '5€ /mois', button: 'Choisir Standard', features: ['Rendu HD temps réel', 'Rotation 360° & Zoom', 'Intégration iFrame simple'] },
-          { name: 'Premium', audience: 'Performance & Analytics', price: '150€', creation: "Création d'un modèle HD personnalisé", monthlyPrice: '9€ /mois', button: 'Choisir Premium', popular: true, features: ['Réalité Augmentée (IOS/Android)', 'Hotspots interactifs', 'Statistiques de consultation'] },
-          { name: 'Enterprise', audience: 'Grands Comptes', price: 'Sur devis', creation: '', button: 'Contacter Sales', features: ['Marque blanche totale', 'Support dédié 24/7', 'Intégration API avancée'] },
+          {
+            name: 'Standard', audience: 'Idéal pour les PME', price: '590 € HT',
+            creation: "Vous possédez déjà un modèle 3D ? Son optimisation pour le web est incluse. La création d’un nouveau modèle 3D est facturée séparément, selon sa complexité.",
+            monthlyPrice: '19 € HT /mois', button: 'Choisir Standard',
+            features: [
+              'Rendu WebGL HD photoréaliste en temps réel',
+              'Rotation 360°, zoom interactif & mode plein écran',
+              'Intégration universelle (Shopify, WooCommerce, Web)',
+              'Statistiques de consultation de base (volume de chargements)',
+              'Hébergement CDN ultra-rapide & certificat SSL inclus'
+            ]
+          },
+          {
+            name: 'Premium', audience: 'Performance & Conversion', price: '1 200 € HT',
+            creation: "Vous possédez déjà un modèle 3D ? Son optimisation pour le web est incluse. La création d’un nouveau modèle 3D est facturée séparément, selon sa complexité.",
+            monthlyPrice: '39 € HT /mois', button: 'Choisir Premium', popular: true,
+            features: [
+              'Réalité Augmentée fluide (iOS & Android sans application)',
+              'Hotspots & annotations interactives sur le produit',
+              'Analytics d’engagement avancés (temps d’interaction, variantes & AR)',
+              'Hébergement CDN haute performance & sauvegardes régulières'
+            ]
+          },
+          {
+            name: 'Enterprise', audience: 'Grands Comptes', price: 'Sur devis',
+            creation: 'Modélisation 3D avancée, scanning ou CAO sur mesure',
+            monthlyPrice: 'À partir de 99 € HT /mois', button: 'Contacter notre équipe',
+            features: [
+              'Marque blanche totale (aucun logo ni mention tierce)',
+              'Intégration API avancée & connecteurs sur mesure',
+              'Support technique prioritaire & interlocuteur dédié',
+              'Hébergement haute disponibilité & adapté aux volumes de trafic importants'
+            ]
+          },
         ],
       },
       {
-        title: '2. Configurateur 3D', subtitle: 'Laissez vos clients personnaliser leurs produits en temps réel.',
+        title: '2. Configurateur 3D', subtitle: 'Permettez à vos clients de concevoir et personnaliser leurs produits en temps réel.',
+        unit: '/ projet',
         cards: [
-          { name: 'Standard', audience: '', price: '450€', creation: 'Création interface & logique de configuration', monthlyPrice: '19€ /mois', button: 'Choisir Standard', features: ["Jusqu'à 10 options de personnalisation simples.", 'Changement de matériaux', 'Variantes de couleurs'] },
-          { name: 'Premium', audience: '', price: '2 500€', creation: 'Développement complet de la plateforme', monthlyPrice: '50€ /mois', button: 'Choisir Premium', popular: true, features: ['Logique de configuration complexe et export de données.', 'Logique conditionnelle', 'Lien direct vers panier', 'Export PDF de config'] },
-          { name: 'Custom', audience: 'Sur-mesure', price: 'Sur devis', creation: 'Pour les projets de grande envergure avec besoins spécifiques.', button: 'Démarrer', features: ['Configurateurs industriels', 'Intégration ERP / CRM'] },
+          {
+            name: 'Standard', audience: 'Boutiques & Marques D2C', price: '1 500 € HT',
+            creation: "Vous possédez déjà un modèle 3D ? Son optimisation pour le web est incluse. La création d’un nouveau modèle 3D est facturée séparément, selon sa complexité.",
+            monthlyPrice: '49 € HT /mois', button: 'Choisir Standard',
+            features: [
+              "Jusqu'à 10 variantes simples (matières, couleurs, finitions)",
+              'Changement de textures instantané en haute définition',
+              'Intégration fluide sur fiche produit e-commerce',
+              'Hébergement cloud & CDN mondial optimisé'
+            ]
+          },
+          {
+            name: 'Premium', audience: 'E-commerce à forte conversion', price: '4 500 € HT',
+            creation: "Vous possédez déjà un modèle 3D ? Son optimisation pour le web est incluse. La création d’un nouveau modèle 3D est facturée séparément, selon sa complexité.",
+            monthlyPrice: '99 € HT /mois', button: 'Choisir Premium', popular: true,
+            features: [
+              'Logique conditionnelle & règles métier complexes',
+              'Variantes et combinaisons étendues en temps réel',
+              'Mise à jour dynamique du prix & ajout direct au panier',
+              'Génération & export de récapitulatif PDF haute qualité',
+              'Analytics détaillés des configurations les plus vendues'
+            ]
+          },
+          {
+            name: 'Custom', audience: 'Sur-mesure & Industrie', price: 'Sur devis',
+            creation: 'Pour les projets de grande envergure avec besoins industriels spécifiques.',
+            monthlyPrice: 'Sur devis', button: 'Demander un devis',
+            features: [
+              'Configurateurs industriels & dimensionnement 3D complexe',
+              'Intégration ERP, CRM, PIM & gestion des stocks',
+              'Règles de tarification avancées & devis automatique',
+              'Architecture logicielle sur mesure & support dédié'
+            ]
+          },
         ],
       },
     ],
+    coverage: {
+      eyebrow: 'INFRASTRUCTURE CLOUD',
+      title: 'Ce que couvre votre abonnement mensuel',
+      subtitle: 'Un service managé clé en main pour assurer des performances optimales et une compatibilité maintenue avec les principaux navigateurs.',
+      commitmentNotice: 'Prix hors taxes (HT). Tous nos forfaits incluent un engagement initial de 12 mois.',
+      scopeTitle: 'Périmètre de la maintenance :',
+      scopeNotice: 'La maintenance corrective et les mises à jour de compatibilité sont incluses. Les évolutions fonctionnelles et modifications des produits font l’objet d’un devis.',
+      terminationTitle: 'Fin d’abonnement & Continuité :',
+      terminationNotice: 'L’abonnement donne accès à l’hébergement, aux services cloud et à la maintenance. En cas de résiliation, une option de transfert ou d’hébergement autonome peut être proposée sur devis.',
+      items: [
+        { title: 'Hébergement CDN Mondial', description: 'Distribution rapide de vos modèles 3D partout dans le monde avec temps de chargement réduits.' },
+        { title: 'Mises à Jour & Compatibilité', description: 'Compatibilité maintenue avec les principaux navigateurs (Chrome, Safari iOS, Android WebXR). Maintenance corrective incluse.' },
+        { title: 'Sécurité & Sauvegardes', description: 'Certificats SSL inclus, sauvegardes régulières de vos assets 3D et infrastructure cloud sécurisée.' },
+        { title: 'Analytics & Suivi de Trafic', description: 'Statistiques de consultation et, selon votre forfait, analyse approfondie de l’engagement et des variantes consultées.' },
+        { title: 'Support Technique & Accompagnement', description: 'Assistance dédiée par notre équipe pour l’intégration, la maintenance et les optimisations sur votre CMS.' },
+        { title: 'Bande Passante & Scalabilité', description: 'Prise en charge adaptée aux volumes de trafic importants avec maintien optimal des performances.' },
+      ]
+    },
     agency: { eyebrow: 'PROGRAMME REVENDEUR', title: 'Vous êtes une agence ?', description: 'Vous êtes une agence web ? Découvrez notre offre Partenariat Revendeur (15 % de marge) et offrez la 3D à vos clients.', button: 'Devenir Partenaire', margin: 'de marge partenaire', badges: [{ value: '24h', label: 'SUPPORT PRIORITAIRE' }, { value: 'White', label: 'LABEL SOLUTION' }] },
     cta: { title: 'Prêt à transformer votre expérience client ?', description: "Rejoignez les leaders de l'industrie qui utilisent déjà AR Production pour booster leurs conversions.", primary: 'Demander une démo gratuite', secondary: '' },
   },
   en: {
-    seo: { title: 'Pricing', description: 'Our transparent pricing 2026' },
-    eyebrow: 'SPATIAL INVESTMENT', title: 'Our transparent pricing 2026', promises: ['Price per product + volume discount', 'One-time integration', 'Free quote in 24h'], hosting: 'Hosting & Maintenance',
-    choose: 'Choose this plan', popular: 'POPULAR', from: 'Starting from', perProduct: '/product', depending: '(depending on complexity)', monthly: 'Monthly subscription', custom: 'Upon request',
+    seo: { title: 'Pricing', description: 'Our transparent 2026 pricing — AR Production' },
+    eyebrow: 'INVESTMENT & ROI', title: 'Transparent pricing built to scale',
+    promises: ['Prices exclude VAT (HT)', 'Initial 12-month commitment', 'CDN hosting & maintenance included', 'Custom quote within 24h'],
+    hosting: 'Cloud Hosting & Infrastructure',
+    commitment: 'Excl. VAT • 12-month initial commitment',
+    choose: 'Choose this plan', popular: 'POPULAR', from: 'Starting from', perProduct: '/ product', depending: '', monthly: 'Monthly subscription', custom: 'Upon request',
     sections: [
       {
-        title: '1. 3D Viewer', subtitle: 'Visualize your products from all angles with photorealistic fidelity.',
+        title: '1. 3D Viewer', subtitle: 'Provide smooth, photorealistic 360° interaction directly on your online store.',
+        unit: '/ product',
         cards: [
-          { name: 'Standard', audience: 'Ideal for SMEs', price: '100€', creation: 'Creating a Custom HD Model', monthlyPrice: '5€ /month', button: 'Choose Standard', features: ['Real-time HD rendering', '360° Rotation & Zoom', 'Simple iFrame integration'] },
-          { name: 'Premium', audience: 'Performance & Analytics', price: '150€', creation: 'Creating a Custom HD Model', monthlyPrice: '9€ /month', button: 'Choose Premium', popular: true, features: ['Augmented Reality (iOS/Android)', 'Interactive hotspots', 'Consultation statistics'] },
-          { name: 'Enterprise', audience: 'Key Accounts', price: 'Upon request', creation: '', button: 'Contact Sales', features: ['Total white label', '24/7 dedicated support', 'Advanced API integration'] },
+          {
+            name: 'Standard', audience: 'Ideal for SMEs', price: '590 € HT',
+            creation: 'Already have a 3D model? Web optimization is included. Creating a new 3D model is billed separately, depending on its complexity.',
+            monthlyPrice: '19 € HT /month', button: 'Choose Standard',
+            features: [
+              'Real-time photorealistic WebGL HD rendering',
+              '360° rotation, interactive zoom & fullscreen mode',
+              'Universal integration (Shopify, WooCommerce, Web)',
+              'Basic view metrics (load & view volume)',
+              'Ultra-fast CDN hosting & SSL certificate included'
+            ]
+          },
+          {
+            name: 'Premium', audience: 'Performance & Conversion', price: '1 200 € HT',
+            creation: 'Already have a 3D model? Web optimization is included. Creating a new 3D model is billed separately, depending on its complexity.',
+            monthlyPrice: '39 € HT /month', button: 'Choose Premium', popular: true,
+            features: [
+              'Frictionless Augmented Reality (iOS & Android app-free)',
+              'Interactive hotspots & product annotations',
+              'Advanced engagement analytics (interaction time, variants & AR)',
+              'High-performance CDN hosting & regular backups'
+            ]
+          },
+          {
+            name: 'Enterprise', audience: 'Key Accounts', price: 'Upon request',
+            creation: 'Advanced 3D modeling, photogrammetry or custom CAD',
+            monthlyPrice: 'Starting from 99 € HT /month', button: 'Contact our team',
+            features: [
+              'Total white label (no third-party branding)',
+              'Advanced API integration & custom connectors',
+              'Priority technical support & dedicated manager',
+              'High availability hosting adapted to large traffic volumes'
+            ]
+          },
         ],
       },
       {
-        title: '2. 3D Configurator', subtitle: 'Let your customers personalize their products in real time.',
+        title: '2. 3D Configurator', subtitle: 'Allow your customers to customize and design their products in real time.',
+        unit: '/ project',
         cards: [
-          { name: 'Standard', audience: '', price: '450€', creation: 'Interface creation & configuration logic', monthlyPrice: '19€ /month', button: 'Choose Standard', features: ['Up to 10 simple customization options.', 'Material changes', 'Color variants'] },
-          { name: 'Premium', audience: '', price: '2 500€', creation: 'Full platform development', monthlyPrice: '50€ /month', button: 'Choose Premium', popular: true, features: ['Complex configuration logic and data export.', 'Conditional logic', 'Direct link to cart', 'Config PDF export'] },
-          { name: 'Custom', audience: 'Custom-made', price: 'Upon request', creation: 'For large-scale projects with specific needs.', button: 'Get started', features: ['Industrial configurators', 'ERP / CRM integration'] },
+          {
+            name: 'Standard', audience: 'Boutiques & D2C Brands', price: '1 500 € HT',
+            creation: 'Already have a 3D model? Web optimization is included. Creating a new 3D model is billed separately, depending on its complexity.',
+            monthlyPrice: '49 € HT /month', button: 'Choose Standard',
+            features: [
+              'Up to 10 simple variants (materials, colors, finishes)',
+              'Real-time texture changes in high definition',
+              'Seamless integration onto your product page',
+              'Optimized global CDN & cloud hosting'
+            ]
+          },
+          {
+            name: 'Premium', audience: 'High-Conversion E-commerce', price: '4 500 € HT',
+            creation: 'Already have a 3D model? Web optimization is included. Creating a new 3D model is billed separately, depending on its complexity.',
+            monthlyPrice: '99 € HT /month', button: 'Choose Premium', popular: true,
+            features: [
+              'Complex conditional logic & custom rules',
+              'Extended variant combinations in real time',
+              'Dynamic pricing update & direct add-to-cart',
+              'High-resolution PDF configuration export',
+              'In-depth analytics on top-performing options'
+            ]
+          },
+          {
+            name: 'Custom', audience: 'Custom-Made & Industrial', price: 'Upon request',
+            creation: 'For large-scale projects with specific industrial needs.',
+            monthlyPrice: 'Upon request', button: 'Request a quote',
+            features: [
+              'Industrial configurators & complex 3D sizing',
+              'ERP, CRM, PIM & inventory integration',
+              'Advanced pricing rules & automatic quoting',
+              'Tailored architecture & dedicated support'
+            ]
+          },
         ],
       },
     ],
+    coverage: {
+      eyebrow: 'CLOUD INFRASTRUCTURE',
+      title: 'What does your monthly subscription cover?',
+      subtitle: 'A fully managed turnkey cloud service ensuring optimal performance and compatibility maintained with major browsers.',
+      commitmentNotice: 'Prices exclude VAT (HT). All plans require an initial 12-month commitment.',
+      scopeTitle: 'Maintenance Scope:',
+      scopeNotice: 'Bug fixes and compatibility updates are included. Feature evolutions and product modifications are quoted separately.',
+      terminationTitle: 'Subscription End & Continuity:',
+      terminationNotice: 'The subscription grants access to hosting, cloud services and maintenance. In the event of termination, a standalone hosting or asset transfer option can be provided on quote.',
+      items: [
+        { title: 'Global CDN Hosting', description: 'Fast 3D asset delivery worldwide with reduced loading times.' },
+        { title: 'Updates & Compatibility', description: 'Compatibility maintained with major browsers (Chrome, Safari iOS, Android WebXR). Bug fixes included.' },
+        { title: 'Security & Backups', description: 'SSL certificates included, regular 3D asset backups, and secure cloud infrastructure.' },
+        { title: 'Analytics & Traffic Insights', description: 'View statistics and, depending on your plan, in-depth analysis of interaction duration and tested variants.' },
+        { title: 'Technical Support & Guidance', description: 'Responsive team assistance for CMS integration (Shopify, WooCommerce, PrestaShop) and optimizations.' },
+        { title: 'Bandwidth & Scalability', description: 'Infrastructure adapted to large traffic volumes with optimal performance maintenance.' },
+      ]
+    },
     agency: { eyebrow: 'RESELLER PROGRAM', title: 'Are you an agency?', description: 'Are you a web agency? Discover our Reseller Partnership offer (15% margin) and offer 3D to your clients.', button: 'Become a Partner', margin: 'partner margin', badges: [{ value: '24h', label: 'PRIORITY SUPPORT' }, { value: 'White', label: 'LABEL SOLUTION' }] },
     cta: { title: 'Ready to transform your customer experience?', description: 'Join the industry leaders who already use AR Production to boost their conversions.', primary: 'Request a free demo', secondary: '' },
   },

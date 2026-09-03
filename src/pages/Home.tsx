@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useSearchParams } from 'react-router-dom';
+import AnimatedCounter from '../components/AnimatedCounter';
 import Button from '../components/Button';
 import PartnerLogos from '../components/PartnerLogos';
 import { homeContent } from '../content/siteContent';
@@ -69,7 +70,7 @@ export default function Home() {
           <p>{content.hero.description}</p>
         </div>
         <div className="home-hero__image-wrap">
-          <img src="/assets/Hero_image_L12yhMwFmraBGfLIjpJqx.webp" alt="Fauteuil configuré en 3D dans un intérieur contemporain" fetchPriority="high" />
+          <img src="/assets/Hero_image.webp" alt="Fauteuil configuré en 3D dans un intérieur contemporain" fetchPriority="high" />
         </div>
       </section>
 
@@ -77,7 +78,7 @@ export default function Home() {
         <div className="home-stats__inner site-container">
           {content.stats.map((stat) => (
             <div className="home-stat" key={stat.label}>
-              <strong>{stat.value}</strong>
+              <strong><AnimatedCounter value={stat.value} /></strong>
               <span>{stat.label}</span>
             </div>
           ))}

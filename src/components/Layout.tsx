@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { sharedContent } from '../content/siteContent';
 import { useLanguage } from '../context/LanguageContext';
 import Button from './Button';
@@ -13,6 +13,7 @@ export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const solutionLabels = locale === 'fr'
     ? { viewer: 'Viewer 3D', configurator: 'Configurateur 3D', ar: 'Réalité Augmentée' }
     : { viewer: '3D Viewer', configurator: '3D Configurator', ar: 'Augmented Reality' };
@@ -24,10 +25,19 @@ export default function Layout() {
     }
 
     const targetId = decodeURIComponent(location.hash.slice(1));
-    const frame = window.requestAnimationFrame(() => {
-      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-    return () => window.cancelAnimationFrame(frame);
+    const scrollToTarget = () => {
+      const element = document.getElementById(targetId) || (targetId === 'solutions' ? document.querySelector('.home-solutions') : null);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    const frame = window.requestAnimationFrame(scrollToTarget);
+    const timeout = window.setTimeout(scrollToTarget, 100);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timeout);
+    };
   }, [location.hash, location.pathname]);
 
   useEffect(() => {
@@ -35,11 +45,29 @@ export default function Layout() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  const handleSolutionsClick = () => {
+    if (location.pathname === '/') {
+      const target = document.getElementById('solutions') || document.querySelector('.home-solutions');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (location.hash !== '#solutions') {
+        navigate('/#solutions', { replace: true });
+      }
+    } else {
+      navigate('/#solutions');
+    }
+  };
+
   const solutionsActive = ['/viewer', '/configurator', '/ar'].includes(location.pathname);
   const navLinks = (
     <>
       <div className="site-header__solutions">
-        <button className={`site-header__nav-link ${solutionsActive ? 'is-active' : ''}`} type="button">
+        <button
+          className={`site-header__nav-link ${solutionsActive ? 'is-active' : ''}`}
+          type="button"
+          onClick={handleSolutionsClick}
+        >
           {content.solutions}<ChevronDown size={14} aria-hidden="true" />
         </button>
         <div className="site-header__solutions-menu">
