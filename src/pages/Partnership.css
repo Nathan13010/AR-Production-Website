@@ -1,0 +1,63 @@
+.partnership-hero { color: #fff; min-height: 850px; overflow: hidden; position: relative; }
+.partnership-hero__background, .partnership-hero__shade { height: 100%; inset: 0; position: absolute; width: 100%; }
+.partnership-hero__background { filter: blur(6px) saturate(.38) brightness(.72); object-fit: cover; transform: scale(1.025); }
+.partnership-hero__shade { background: linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.72) 55%, rgba(0,0,0,.48) 100%); }
+.partnership-hero__content { align-items: center; display: grid; gap: clamp(55px, 7vw, 120px); grid-template-columns: minmax(0, 1.22fr) minmax(340px, .78fr); min-height: 850px; padding-bottom: 100px; padding-top: 100px; position: relative; }
+.partnership-hero .eyebrow { color: #aaa; margin-bottom: 26px; }
+.partnership-hero h1 { font-size: clamp(50px, 5.1vw, 82px); font-weight: 640; letter-spacing: -.07em; line-height: .94; max-width: 900px; }
+.partnership-hero__copy > p:not(.eyebrow) { color: #ccc; font-size: 15px; line-height: 1.7; margin-top: 30px; max-width: 720px; }
+.partnership-hero__copy > p em { color: #fff; font-family: 'Manrope', sans-serif; font-style: italic; }
+.partnership-hero__actions { display: flex; gap: 12px; margin-top: 40px; }
+.partnership-hero__contact { border-color: #777; color: #fff; }
+.partnership-visual { align-self: center; backdrop-filter: blur(24px); background: rgba(255,255,255,.62); border: 1px solid rgba(255,255,255,.36); border-radius: 26px; box-shadow: 0 24px 80px rgba(0,0,0,.28); padding: 31px; position: relative; }
+.partnership-visual__margin { background: #090909; border-radius: 12px; box-shadow: 0 13px 30px rgba(0,0,0,.28); color: #fff; font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 760; padding: 10px 15px; position: absolute; right: -22px; text-transform: uppercase; top: -18px; transform: rotate(4deg); }
+.partnership-visual__list { display: grid; gap: 13px; }
+.partnership-visual article { align-items: center; background: rgba(255,255,255,.94); border: 1px solid rgba(0,0,0,.05); border-radius: 17px; color: #111; display: flex; gap: 18px; min-height: 91px; padding: 17px; }
+.partnership-visual article > span { align-items: center; background: #f0f0f0; border-radius: 13px; display: flex; flex: 0 0 52px; height: 52px; justify-content: center; }
+.partnership-visual article > div { display: grid; gap: 5px; }
+.partnership-visual h2 { font-size: 13px; font-weight: 750; letter-spacing: .09em; }
+.partnership-visual p { color: #777; font-size: 12px; line-height: 1.4; }
+.partnership-benefits { padding-bottom: 145px; padding-top: 145px; }
+.partnership-benefits__heading { margin-bottom: 58px; text-align: center; }
+.partnership-benefits__heading .eyebrow { margin-bottom: 15px; }
+.partnership-benefits__heading h2 { font-size: clamp(42px, 5.5vw, 82px); font-weight: 640; letter-spacing: -.065em; line-height: 1; }
+.partnership-benefits__grid { display: grid; gap: 22px; grid-template-columns: repeat(2, 1fr); }
+.benefit-card { border-radius: 34px; min-height: 470px; overflow: hidden; padding: 42px; position: relative; }
+.benefit-card__body { bottom: 42px; left: 42px; position: absolute; right: 42px; z-index: 2; }
+.benefit-card h3 { font-size: clamp(27px, 3vw, 43px); font-weight: 620; letter-spacing: -.05em; line-height: 1.04; }
+.benefit-card p { color: #777; font-size: 13px; line-height: 1.7; margin-top: 15px; max-width: 500px; }
+.benefit-card__icon { align-items: center; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.13); border-radius: 16px; display: flex; height: 58px; justify-content: center; left: 42px; position: absolute; top: 42px; width: 58px; }
+.benefit-card--dark { background: #090909; color: #fff; }
+.benefit-card--dark p { color: #8b8b8b; }
+.benefit-card--number { background: #ededed; }
+.benefit-card--number > strong { color: #d0d0d0; font-family: 'Manrope', sans-serif; font-size: clamp(110px, 18vw, 260px); font-weight: 650; letter-spacing: -.09em; line-height: .75; position: absolute; right: -6px; top: 30px; }
+.benefit-card--image { background: #d8d3ca; color: #fff; }
+.benefit-card--image::after { background: linear-gradient(0deg, rgba(0,0,0,.68), rgba(0,0,0,.06) 72%); content: ''; inset: 0; position: absolute; }
+.benefit-card--image img { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; }
+.benefit-card--image p { color: #ddd; }
+.benefit-card--light { background: #f5f5f5; }
+.benefit-card--light .benefit-card__icon { background: #fff; border-color: #e2e2e2; }
+.benefit-card--image .benefit-card__body { backdrop-filter: blur(16px); background: rgba(8,8,8,.76); border: 1px solid rgba(255,255,255,.14); border-radius: 22px; bottom: 22px; left: 22px; padding: 24px; right: 22px; }
+.partnership-cta { background: #f4f4f4; padding: 140px 0; text-align: center; }
+.partnership-cta h2 { font-size: clamp(45px, 6vw, 88px); font-weight: 640; letter-spacing: -.065em; line-height: 1; }
+.partnership-cta p { color: #777; margin-top: 22px; }
+.partnership-cta > div > div { display: flex; gap: 12px; justify-content: center; margin-top: 38px; }
+
+@media (max-width: 991px) { .partnership-hero__content { grid-template-columns: 1fr; } .partnership-visual { margin-bottom: 25px; width: min(100%, 640px); } .partnership-benefits__grid { grid-template-columns: 1fr; } }
+@media (max-width: 767px) {
+  .partnership-hero, .partnership-hero__content { min-height: 0; }
+  .partnership-hero__shade { background: rgba(0,0,0,.75); }
+  .partnership-hero__content { gap: 70px; padding-bottom: 100px; padding-top: 80px; }
+  .partnership-hero h1 { font-size: clamp(45px, 13vw, 70px); }
+  .partnership-hero__actions { align-items: stretch; flex-direction: column; width: 100%; }
+  .partnership-visual { padding: 20px; }
+  .partnership-visual__margin { font-size: 13px; right: -8px; }
+  .partnership-visual article { gap: 13px; padding: 13px; }
+  .partnership-benefits { padding-bottom: 95px; padding-top: 95px; }
+  .benefit-card { min-height: 390px; padding: 30px; }
+  .benefit-card__body { bottom: 30px; left: 30px; right: 30px; }
+  .benefit-card__icon { left: 30px; top: 30px; }
+  .benefit-card--image .benefit-card__body { bottom: 16px; left: 16px; padding: 20px; right: 16px; }
+  .partnership-cta { padding: 95px 0; }
+  .partnership-cta > div > div { align-items: stretch; flex-direction: column; margin-inline: auto; width: min(100%, 340px); }
+}
