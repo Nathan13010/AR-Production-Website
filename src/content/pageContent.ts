@@ -341,6 +341,28 @@ export const partnershipContent = {
 } as const;
 
 export const demoContent = {
-  fr: { seo: { title: 'Démo', description: 'Découvrez quelques-unes de nos réalisations' }, eyebrow: 'EXPÉRIENCES INTERACTIVES', title: 'DÉMO', subtitle: 'Découvrez quelques-unes de nos réalisations', fullscreen: 'Plein écran', exitFullscreen: 'Quitter le plein écran', previous: 'Voir les démonstrations précédentes', next: 'Voir les démonstrations suivantes', swipeHint: 'Faites glisser pour découvrir les autres expériences' },
-  en: { seo: { title: 'Demo', description: 'Discover some of our work' }, eyebrow: 'INTERACTIVE EXPERIENCES', title: 'DEMO', subtitle: 'Discover some of our work', fullscreen: 'Full screen', exitFullscreen: 'Exit full screen', previous: 'View previous demos', next: 'View next demos', swipeHint: 'Swipe to discover more experiences' },
+  fr: {
+    seo: { title: 'Démo', description: 'Découvrez quelques-unes de nos réalisations' },
+    eyebrow: 'EXPÉRIENCES INTERACTIVES',
+    title: 'DÉMO',
+    subtitle: 'Découvrez quelques-unes de nos réalisations',
+    filters: { all: 'Tout', viewer: 'Viewer', configurator: 'Configurateur', ar: 'AR' },
+    fullscreen: 'Plein écran',
+    exitFullscreen: 'Quitter le plein écran',
+    previous: 'Voir les démonstrations précédentes',
+    next: 'Voir les démonstrations suivantes',
+    swipeHint: 'Faites glisser pour découvrir les autres expériences',
+  },
+  en: {
+    seo: { title: 'Demo', description: 'Discover some of our work' },
+    eyebrow: 'INTERACTIVE EXPERIENCES',
+    title: 'DEMO',
+    subtitle: 'Discover some of our work',
+    filters: { all: 'All', viewer: 'Viewer', configurator: 'Configurator', ar: 'AR' },
+    fullscreen: 'Full screen',
+    exitFullscreen: 'Exit full screen',
+    previous: 'View previous demos',
+    next: 'View next demos',
+    swipeHint: 'Swipe to discover more experiences',
+  },
 } as const;
