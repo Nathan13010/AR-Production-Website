@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { useSearchParams } from 'react-router-dom';
 import { demoContent } from '../content/pageContent';
 import { demos, type DemoId, type DemoFilter } from '../content/mediaData';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,14 +9,54 @@ import './Demo.css';
 
 const FILTER_KEYS: DemoFilter[] = ['all', 'viewer', 'configurator', 'ar'];
 
+function getDemoIdFromSearch(params: URLSearchParams): DemoId | null {
+  const demoParam = params.get('demo')?.toLowerCase();
+  if (demoParam && demos.some((d) => d.id === demoParam)) {
+    return demoParam as DemoId;
+  }
+  for (const key of params.keys()) {
+    const lowerKey = key.toLowerCase();
+    if (demos.some((d) => d.id === lowerKey)) {
+      return lowerKey as DemoId;
+    }
+  }
+  return null;
+}
+
 export default function Demo() {
   const { locale } = useLanguage();
   const content = demoContent[locale];
   const [filter, setFilter] = useState<DemoFilter>('all');
-  const [selectedId, setSelectedId] = useState<DemoId>('calisson');
-  const [fallbackFullscreen, setFallbackFullscreen] = useState(false);
+  const [searchParams] = useSearchParams();
   const viewerRef = useRef<HTMLDivElement>(null);
   const selectorRef = useRef<HTMLDivElement>(null);
+  const hasAutoScrolledRef = useRef(false);
+
+  const initialDemoId = getDemoIdFromSearch(searchParams);
+  const [selectedId, setSelectedId] = useState<DemoId>(() => initialDemoId ?? 'calisson');
+  const [fallbackFullscreen, setFallbackFullscreen] = useState(false);
+
+  // Auto-scroll to application-canvas if a demo was specified in URL
+  useEffect(() => {
+    if (hasAutoScrolledRef.current) return;
+    const requestedDemo = getDemoIdFromSearch(searchParams);
+    if (requestedDemo) {
+      hasAutoScrolledRef.current = true;
+      const target = document.getElementById('application-canvas');
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 150);
+      }
+    }
+  }, [searchParams]);
+
+  const handleSelectDemo = (demoId: DemoId) => {
+    setSelectedId(demoId);
+    // Update URL query string to /demo?<id> without reloading
+    const newUrl = `${window.location.pathname}?${demoId}`;
+    window.history.replaceState(null, '', newUrl);
+  };
 
   const filteredDemos = useMemo(() => {
     if (filter === 'all') return demos;
@@ -97,7 +138,7 @@ export default function Demo() {
           <button className="demo-selector__arrow demo-selector__arrow--previous" type="button" onClick={() => scrollSelector(-1)} aria-label={content.previous}><ChevronLeft aria-hidden="true" /></button>
           <div className="demo-selector" ref={selectorRef} aria-label="Choisir une démonstration">
             {filteredDemos.map((demo) => (
-              <button className={demo.id === selectedDemo.id ? 'is-active' : ''} type="button" key={demo.id} onClick={() => setSelectedId(demo.id)} aria-pressed={demo.id === selectedDemo.id} data-analytics-event="demo_select" data-analytics-label={demo.id}>
+              <button className={demo.id === selectedDemo.id ? 'is-active' : ''} type="button" key={demo.id} onClick={() => handleSelectDemo(demo.id)} aria-pressed={demo.id === selectedDemo.id} data-analytics-event="demo_select" data-analytics-label={demo.id}>
                 <img src={demo.thumbnail} alt="" /><span>{demo.name}</span>
               </button>
             ))}
@@ -106,7 +147,7 @@ export default function Demo() {
         </div>
         <p className="demo-selector__hint">{content.swipeHint}<ChevronRight size={15} aria-hidden="true" /></p>
 
-        <div className={`demo-viewer ${fallbackFullscreen ? 'is-fallback-fullscreen' : ''}`} ref={viewerRef}>
+        <div id="application-canvas" className={`demo-viewer ${fallbackFullscreen ? 'is-fallback-fullscreen' : ''}`} ref={viewerRef}>
           <iframe key={selectedDemo.url} src={selectedDemo.url} title={`${selectedDemo.name} — démonstration 3D`} allow="fullscreen; xr-spatial-tracking; camera; gyroscope; accelerometer" allowFullScreen />
           <button className="demo-viewer__fullscreen" type="button" onClick={toggleFullscreen} aria-label={fallbackFullscreen ? content.exitFullscreen : content.fullscreen}>
             {fallbackFullscreen ? <X size={20} /> : <Expand size={20} />}<span>{fallbackFullscreen ? content.exitFullscreen : content.fullscreen}</span>
