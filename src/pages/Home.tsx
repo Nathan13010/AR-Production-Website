@@ -75,7 +75,7 @@ export default function Home() {
         <div className="home-integrations__inner site-container">
           <div className="home-integrations__stage" aria-label={content.integrations.ariaLabel}>
             {content.integrations.items.map((platform, index) => (
-              <div className="home-platform" style={{ '--platform-delay': `${((index - content.integrations.items.length) * 4) - 0.8}s` } as CSSProperties} key={platform.name}>
+              <div className="home-platform" style={{ '--platform-delay': `${((index - content.integrations.items.length) * 3.2) - 0.64}s` } as CSSProperties} key={platform.name}>
                 <img src={platform.logo} alt={platform.name} />
                 <strong>{platform.name}</strong>
               </div>
@@ -97,7 +97,16 @@ export default function Home() {
             <Link className="solution-card" to={localizePath(solution.to)} key={solution.to}>
               <div className="solution-card__image"><img src={solution.image} alt="" loading="lazy" /></div>
               <div className="solution-card__content">
-                <h3>{solution.title}</h3>
+                <h3>
+                  {solution.title.includes('(') ? (
+                    <>
+                      {solution.title.split('(')[0]}
+                      <span className="solution-card__tag">({solution.title.split('(')[1]}</span>
+                    </>
+                  ) : (
+                    solution.title
+                  )}
+                </h3>
                 <p>{solution.description}</p>
                 <span className="solution-card__action">{solution.action}<ArrowRight size={18} aria-hidden="true" /></span>
               </div>

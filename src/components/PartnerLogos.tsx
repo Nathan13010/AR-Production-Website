@@ -9,7 +9,7 @@ export default function PartnerLogos({ ariaLabel }: { ariaLabel: string }) {
           const duplicate = index >= partnerLogos.length;
           return (
             <span className="partner-logos__item" key={`${partner.name}-${index}`} aria-hidden={duplicate || undefined}>
-              <img src={partner.src} alt={duplicate ? '' : partner.name} loading="lazy" />
+              <img src={partner.src} alt={duplicate ? '' : partner.name} loading="eager" decoding="async" />
             </span>
           );
         })}

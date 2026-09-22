@@ -40,7 +40,7 @@ export const homeContent = {
       items: [
         { title: 'Configurateur Produit 3D', description: 'Permettez à vos clients de personnaliser les couleurs, matières et options en temps réel avec mise à jour dynamique du prix.', action: 'Explorer les Configurateurs', image: '/assets/Configurator_1_PvMB6tzS7sOPTEdZVWNid.webp', to: '/configurator' },
         { title: 'Viewer 3D Interactif', description: 'Remplacez les images statiques. Laissez vos clients pivoter, zoomer et inspecter chaque détail de vos produits directement sur la fiche produit.', action: 'Explorer les Viewers 3D', image: '/assets/Viewer_2.webp', to: '/viewer' },
-        { title: 'Réalité Augmentée (WebAR)', description: 'Projetez le mobilier et les produits physiques directement dans la pièce de vos clients à l\'échelle réelle depuis leur smartphone.', action: 'Explorer la Réalité Augmentée', image: '/assets/AR_2.webp', to: '/ar' },
+        { title: 'Réalité Augmentée (WebAR)', description: 'Projetez les produits directement dans la pièce de vos clients à l\'échelle réelle depuis leur smartphone.', action: 'Explorer la Réalité Augmentée', image: '/assets/AR_2.webp', to: '/ar' },
       ],
     },
     trust: 'ILS NOUS FONT CONFIANCE',

@@ -9,13 +9,13 @@
 .home-integrations__inner { align-items: center; display: grid; gap: clamp(54px, 8vw, 140px); grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr); min-height: 250px; padding-bottom: 28px; padding-top: 28px; }
 .home-integrations__copy h2 { color: #767676; font-size: clamp(22px, 2.6vw, 38px); font-weight: 540; letter-spacing: -.04em; line-height: 1.1; white-space: nowrap; }
 .home-integrations__stage { height: 190px; position: relative; }
-.home-platform { --platform-delay: -16.8s; align-items: center; animation: platform-cycle 16s cubic-bezier(.22, .75, .2, 1) infinite; animation-delay: var(--platform-delay); display: flex; flex-direction: column; gap: 14px; inset: 0; justify-content: center; opacity: 0; position: absolute; transform: translateY(34px); }
+.home-platform { --platform-delay: -13.44s; align-items: center; animation: platform-cycle 12.8s cubic-bezier(.22, .75, .2, 1) infinite; animation-delay: var(--platform-delay); display: flex; flex-direction: column; gap: 14px; inset: 0; justify-content: center; opacity: 0; position: absolute; transform: translateY(34px); }
 .home-platform img { height: 165px; max-width: 210px; object-fit: contain; width: 100%; }
 .home-platform strong { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 650; letter-spacing: -.02em; }
 
 @keyframes platform-cycle {
   0% { opacity: 0; transform: translateY(34px); }
-  5%, 20% { opacity: 1; transform: translateY(0); }
+  4%, 21% { opacity: 1; transform: translateY(0); }
   25%, 100% { opacity: 0; transform: translateY(-34px); }
 }
 
@@ -30,6 +30,7 @@
 .solution-card:hover .solution-card__image img { transform: scale(1.025); }
 .solution-card__content { min-height: 210px; padding: 30px 34px 34px; position: relative; }
 .solution-card__content h3 { font-size: clamp(25px, 2.2vw, 34px); font-weight: 620; letter-spacing: -.045em; }
+.solution-card__tag { font-size: .68em; font-weight: 550; letter-spacing: -.02em; opacity: .85; white-space: nowrap; }
 .solution-card__content p { color: #777; font-size: 13px; line-height: 1.65; margin-top: 16px; max-width: 88%; }
 .solution-card__action { align-items: center; bottom: 28px; display: flex; font-size: 11px; font-weight: 700; gap: 9px; position: absolute; right: 30px; transition: gap 180ms ease; }
 .solution-card:hover .solution-card__action { gap: 14px; }
