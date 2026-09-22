@@ -1,5 +1,5 @@
 import { ArrowRight, Code2, Download, Gauge, Headphones, PanelsTopLeft } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import Button from '../components/Button';
 import { partnershipContent } from '../content/pageContent';
 import { useLanguage } from '../context/LanguageContext';
@@ -15,12 +15,11 @@ export default function Partnership() {
 
   return (
     <>
-      <Helmet>
-        <title>{content.seo.title}</title><meta name="description" content={content.seo.description} />
-        <meta property="og:title" content={content.seo.title} /><meta property="og:description" content={content.seo.description} />
-        <meta property="og:url" content="https://ardittiproduction.com/partnership" /><meta property="og:image" content="https://ardittiproduction.com/og.png" />
-        <meta name="robots" content="noindex,nofollow" />
-      </Helmet>
+      <Seo
+        title={content.seo.title}
+        description={content.seo.description}
+        type="WebSite"
+      />
 
       <section className="partnership-hero">
         <img className="partnership-hero__background" src="/assets/Office_Shot_Foe7DU3zNDvgMJ3Pd8s3w.webp" alt="" />
@@ -54,7 +53,7 @@ export default function Partnership() {
             const BenefitIcon = benefit.kind === 'dark' || benefit.kind === 'light' ? benefitIcons[benefit.kind] : null;
             return (
               <article className={`benefit-card benefit-card--${benefit.kind}`} key={benefit.title}>
-                {benefit.kind === 'image' && <img src="/assets/sofa_configurator_jvktVsOoc8yb6iclDP3FQ.png" alt="Configurateur de canapé 3D" loading="lazy" />}
+                {benefit.kind === 'image' && <img src="/assets/sofa_configurator_jvktVsOoc8yb6iclDP3FQ.png" alt={locale === 'fr' ? 'Configurateur de canapé 3D' : '3D sofa configurator'} loading="lazy" />}
                 {benefit.kind === 'number' && <strong>15%</strong>}
                 {BenefitIcon && <span className="benefit-card__icon"><BenefitIcon size={29} strokeWidth={1.45} aria-hidden="true" /></span>}
                 <div className="benefit-card__body"><h3>{benefit.title}</h3><p>{benefit.description}</p></div>

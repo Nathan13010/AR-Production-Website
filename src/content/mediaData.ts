@@ -1,7 +1,6 @@
 export const partnerLogos = [
   { name: 'Coca-Cola', src: '/assets/partner-logo-1.svg' },
   { name: 'Jacob & Co Genève', src: '/assets/partner-logo-2.svg' },
-  { name: 'Rolex', src: '/assets/partner-logo-3.svg' },
   { name: 'Changer mes verres', src: '/assets/partner-logo-4.svg' },
   { name: 'ATA Tablacasa', src: '/assets/partner-logo-5.svg' },
   { name: 'LA29', src: '/assets/LA29_Logo.svg' },

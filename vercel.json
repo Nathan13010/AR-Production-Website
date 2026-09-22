@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "https://www.ardittiproduction.com/(.*)", "destination": "https://ardittiproduction.com/$1", "permanent": true, "statusCode": 301 },
+    { "source": "http://www.ardittiproduction.com/(.*)", "destination": "https://ardittiproduction.com/$1", "permanent": true, "statusCode": 301 },
+    { "source": "http://ardittiproduction.com/(.*)", "destination": "https://ardittiproduction.com/$1", "permanent": true, "statusCode": 301 }
+  ]
+}

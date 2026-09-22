@@ -1,43 +1,32 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
+import { getRouteInfo } from '../content/routeManifest';
 
 export type Locale = 'fr' | 'en';
 
 interface LanguageContextValue {
   locale: Locale;
-  setLocale: (locale: Locale) => void;
 }
 
-const STORAGE_KEY = 'selectedLanguage';
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-function getInitialLocale(): Locale {
-  if (typeof window === 'undefined') return 'fr';
-
-  const saved = window.localStorage.getItem(STORAGE_KEY);
-  if (saved === 'fr' || saved === 'en') return saved;
-
-  return window.navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'en';
-}
-
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
+  const location = useLocation();
+  const routeInfo = getRouteInfo(location.pathname);
 
-  const setLocale = (nextLocale: Locale) => {
-    window.localStorage.setItem(STORAGE_KEY, nextLocale);
-    setLocaleState(nextLocale);
-  };
+  // Default to French if not found (e.g. 404 page), or we could extract it from path if it starts with /en/
+  const locale: Locale = routeInfo ? routeInfo.locale : (location.pathname.startsWith('/en/') ? 'en' : 'fr');
 
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
-  const value = useMemo(() => ({ locale, setLocale }), [locale]);
+  const value = useMemo(() => ({ locale }), [locale]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
-// oxlint-disable-next-line react/only-export-components -- colocated with its provider by design
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (!context) throw new Error('useLanguage must be used within LanguageProvider');

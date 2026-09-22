@@ -6,7 +6,7 @@ export const sharedContent = {
       solutions: 'Nos solutions', pricing: 'Tarifs', demo: 'DEMO', partnership: 'Partenariat Agences', contact: 'Contact', quote: 'Demander un devis', openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', language: 'Langue',
     },
     footer: {
-      description: "Leader européen de la visualisation produit 3D pour l'e-commerce et l'industrie.", navigation: 'NAVIGATION', home: 'Accueil', solutions: 'Solutions', pricing: 'Tarifs', demo: 'DEMO', company: 'ENTREPRISE', partnership: 'Partenariat Agences', contact: 'Contact', privacy: 'Politique de confidentialité', terms: 'Mentions légales', social: 'RÉSEAUX SOCIAUX', rights: 'Tous droits réservés.',
+      description: "Expériences produit 3D interactives pour l'e-commerce, les fabricants et les marques.", navigation: 'NAVIGATION', home: 'Accueil', solutions: 'Solutions', pricing: 'Tarifs', demo: 'DEMO', company: 'ENTREPRISE', partnership: 'Partenariat Agences', contact: 'Contact', privacy: 'Politique de confidentialité', terms: 'Mentions légales', social: 'RÉSEAUX SOCIAUX', rights: 'Tous droits réservés.',
     },
   },
   en: {
@@ -14,24 +14,33 @@ export const sharedContent = {
       solutions: 'Our Solutions', pricing: 'Pricing', demo: 'DEMO', partnership: 'Agency Partnership', contact: 'Contact', quote: 'Request a quote', openMenu: 'Open menu', closeMenu: 'Close menu', language: 'Language',
     },
     footer: {
-      description: 'European leader in 3D product visualization for e-commerce and industry.', navigation: 'NAVIGATION', home: 'Home', solutions: 'Solutions', pricing: 'Pricing', demo: 'DEMO', company: 'COMPANY', partnership: 'Agency Partnership', contact: 'Contact', privacy: 'Privacy policy', terms: 'Legal notice', social: 'SOCIAL MEDIA', rights: 'All rights reserved.',
+      description: 'Interactive 3D product experiences for e-commerce, manufacturers and brands.', navigation: 'NAVIGATION', home: 'Home', solutions: 'Solutions', pricing: 'Pricing', demo: 'DEMO', company: 'COMPANY', partnership: 'Agency Partnership', contact: 'Contact', privacy: 'Privacy policy', terms: 'Legal notice', social: 'SOCIAL MEDIA', rights: 'All rights reserved.',
     },
   },
 } as const;
 
 export const homeContent = {
   fr: {
-    seo: { title: 'Home', description: "Visualisez, personnalisez et vendez vos produits en 3D. Intégration Shopify, PrestaShop et WooCommerce en 48h." },
-    hero: { firstLine: 'Configurateur & Viewer 3D :', muted: 'Boostez vos ventes', accent: "jusqu'à +40%", description: 'Visualisez, personnalisez et vendez vos produits en 3D en quelques clics. Intégration Shopify, PrestaShop, WooCommerce en 48h.' },
-    stats: [
-      { value: '+35%', label: 'TEMPS PASSÉ SUR PAGE' }, { value: '+22%', label: 'PANIER MOYEN' }, { value: '-40%', label: 'DE RETOURS PRODUITS' },
-    ],
-    solutions: {
-      eyebrow: 'LE DIGITAL QUI SÉDUIT', title: 'Nos Solutions interactives',
+    seo: { title: 'Agence de Visualisation Produit 3D', description: 'Agence 3D spécialisée dans la création de configurateurs sur mesure, viewers 3D interactifs et expériences WebAR pour l\'e-commerce, les fabricants et les marques.' },
+    hero: { firstLine: 'Expériences Produit 3D Sur Mesure.', muted: 'Boostez la conversion', accent: 'de votre e-commerce.', description: 'Nous concevons des configurateurs produit 3D interactifs, des viewers 360° et des solutions WebAR conçus pour s\'intégrer de manière fluide à votre plateforme e-commerce.' },
+    integrations: {
+      eyebrow: 'COMPATIBLE AVEC VOTRE E-COMMERCE',
+      title: 'Compatible avec votre e-commerce.',
+      description: 'Nous intégrons l\'expérience 3D directement à votre environnement existant — catalogue, variantes, tarification et panier compris.',
+      ariaLabel: 'Plateformes e-commerce prises en charge',
       items: [
-        { title: 'Viewer 3D', description: 'Proposez une expérience de visualisation immersive et interactive sous tous les angles.', action: 'Découvrir le viewer', image: '/assets/Viewer_2.webp', to: '/viewer' },
-        { title: 'Configurateur 3D', description: 'Offrez la possibilité de personnaliser entièrement vos produits en temps réel.', action: 'Découvrir le configurateur', image: '/assets/Configurator_1_PvMB6tzS7sOPTEdZVWNid.webp', to: '/configurator' },
-        { title: 'AR', description: "Projetez instantanément vos produits dans l'environnement réel de vos clients.", action: 'Découvrir la AR', image: '/assets/AR_2.webp', to: '/ar' },
+        { name: 'Shopify', logo: '/assets/platform-shopify.svg', detail: 'Catalogue, variantes et panier connectés' },
+        { name: 'PrestaShop', logo: '/assets/platform-prestashop.svg', detail: 'Intégration fluide aux fiches produit' },
+        { name: 'WooCommerce', logo: '/assets/platform-woocommerce.svg', detail: 'Options et tarification synchronisées' },
+        { name: 'WordPress', logo: '/assets/platform-wordpress.svg', detail: 'Expérience 3D intégrée à votre site' },
+      ],
+    },
+    solutions: {
+      eyebrow: 'CE QUE NOUS CONCEVONS', title: 'Nos solutions 3D interactives',
+      items: [
+        { title: 'Configurateur Produit 3D', description: 'Permettez à vos clients de personnaliser les couleurs, matières et options en temps réel avec mise à jour dynamique du prix.', action: 'Explorer les Configurateurs', image: '/assets/Configurator_1_PvMB6tzS7sOPTEdZVWNid.webp', to: '/configurator' },
+        { title: 'Viewer 3D Interactif', description: 'Remplacez les images statiques. Laissez vos clients pivoter, zoomer et inspecter chaque détail de vos produits directement sur la fiche produit.', action: 'Explorer les Viewers 3D', image: '/assets/Viewer_2.webp', to: '/viewer' },
+        { title: 'Réalité Augmentée (WebAR)', description: 'Projetez le mobilier et les produits physiques directement dans la pièce de vos clients à l\'échelle réelle depuis leur smartphone.', action: 'Explorer la Réalité Augmentée', image: '/assets/AR_2.webp', to: '/ar' },
       ],
     },
     trust: 'ILS NOUS FONT CONFIANCE',
@@ -53,17 +62,26 @@ export const homeContent = {
     },
   },
   en: {
-    seo: { title: 'Home', description: 'Visualize, customize and sell your products in 3D. Shopify, PrestaShop and WooCommerce integration in 48 hours.' },
-    hero: { firstLine: '3D Configurator & Viewer:', muted: 'Boost your sales by', accent: 'up to +40%', description: 'View, customize, and sell your products in 3D with just a few clicks. Shopify, PrestaShop, and WooCommerce integration within 48 hours.' },
-    stats: [
-      { value: '+35%', label: 'TIME SPENT ON PAGE' }, { value: '+22%', label: 'AVERAGE CART VALUE' }, { value: '-40%', label: 'PRODUCT RETURNS' },
-    ],
-    solutions: {
-      eyebrow: 'DIGITAL that captivates', title: 'Our interactive solutions',
+    seo: { title: '3D Product Visualization Agency', description: 'Specialized 3D agency building custom product configurators, interactive 3D viewers, and WebAR experiences for e-commerce, manufacturers, and brands.' },
+    hero: { firstLine: 'Custom 3D Product Experiences.', muted: 'Boost e-commerce', accent: 'conversion rates.', description: 'We build interactive 3D product configurators, viewers, and WebAR solutions designed to integrate seamlessly into your e-commerce platform.' },
+    integrations: {
+      eyebrow: 'WORKS WITH YOUR E-COMMERCE STACK',
+      title: 'Compatible with your e-commerce platform.',
+      description: 'We embed the 3D experience into your existing environment — including catalog, variants, dynamic pricing, and cart.',
+      ariaLabel: 'Supported e-commerce platforms',
       items: [
-        { title: 'Viewer 3D', description: 'Offer an immersive and interactive viewing experience from every angle.', action: 'Discover the viewer', image: '/assets/Viewer_2.webp', to: '/viewer' },
-        { title: '3D Configurator', description: 'Offer the ability to fully customize your products in real time.', action: 'Discover the configurator', image: '/assets/Configurator_1_PvMB6tzS7sOPTEdZVWNid.webp', to: '/configurator' },
-        { title: 'AR', description: "Instantly project your products into your customers' real environment.", action: 'Discover AR', image: '/assets/AR_2.webp', to: '/ar' },
+        { name: 'Shopify', logo: '/assets/platform-shopify.svg', detail: 'Catalog, variants, and cart connected' },
+        { name: 'PrestaShop', logo: '/assets/platform-prestashop.svg', detail: 'Seamlessly embedded on product pages' },
+        { name: 'WooCommerce', logo: '/assets/platform-woocommerce.svg', detail: 'Options and pricing kept in sync' },
+        { name: 'WordPress', logo: '/assets/platform-wordpress.svg', detail: '3D experience built into your site' },
+      ],
+    },
+    solutions: {
+      eyebrow: 'WHAT WE BUILD', title: 'Our interactive 3D solutions',
+      items: [
+        { title: '3D Product Configurator', description: 'Allow customers to visually customize colors, materials, and options in real time with dynamic pricing integration.', action: 'Explore Configurators', image: '/assets/Configurator_1_PvMB6tzS7sOPTEdZVWNid.webp', to: '/configurator' },
+        { title: 'Interactive 3D Viewer', description: 'Replace static images. Let your customers rotate, zoom, and inspect every detail of your product directly on the product page.', action: 'Explore 3D Viewers', image: '/assets/Viewer_2.webp', to: '/viewer' },
+        { title: 'AR (Augmented Reality)', description: 'Instantly visualize your products in your customers’ real-world environment using their smartphone.', action: 'Explore WebAR', image: '/assets/AR_2.webp', to: '/ar' },
       ],
     },
     trust: 'THEY TRUST US',

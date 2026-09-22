@@ -1,9 +1,9 @@
 import './PartnerLogos.css';
 import { partnerLogos } from '../content/mediaData';
 
-export default function PartnerLogos() {
+export default function PartnerLogos({ ariaLabel }: { ariaLabel: string }) {
   return (
-    <div className="partner-logos" aria-label="Marques partenaires">
+    <div className="partner-logos" aria-label={ariaLabel}>
       <div className="partner-logos__track">
         {[...partnerLogos, ...partnerLogos].map((partner, index) => {
           const duplicate = index >= partnerLogos.length;
