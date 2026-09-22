@@ -5,15 +5,21 @@
 .home-hero__image-wrap { align-items: center; display: flex; }
 .home-hero__image-wrap img { height: auto; object-fit: contain; width: 100%; }
 
-.home-stats { background: #f6f6f6; }
-.home-stats__inner { display: grid; grid-template-columns: repeat(3, 1fr); padding-bottom: 76px; padding-top: 76px; }
-.home-stat { align-items: center; display: flex; flex-direction: column; gap: 12px; justify-content: center; min-height: 110px; text-align: center; }
-.home-stat + .home-stat { border-left: 1px solid #d8d8d8; }
-.home-stat strong { color: #111; font-family: 'Manrope', sans-serif; font-size: clamp(44px, 5vw, 72px); font-weight: 620; font-variant-numeric: tabular-nums; letter-spacing: -.06em; line-height: 1; }
-.home-stat strong span { color: inherit; font-family: inherit; font-size: inherit; font-weight: inherit; letter-spacing: inherit; line-height: inherit; }
-.home-stat > span { color: #737373; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.home-integrations { background: #f6f6f6; overflow: hidden; }
+.home-integrations__inner { align-items: center; display: grid; gap: clamp(54px, 8vw, 140px); grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr); min-height: 250px; padding-bottom: 28px; padding-top: 28px; }
+.home-integrations__copy h2 { color: #767676; font-size: clamp(22px, 2.6vw, 38px); font-weight: 540; letter-spacing: -.04em; line-height: 1.1; white-space: nowrap; }
+.home-integrations__stage { height: 190px; position: relative; }
+.home-platform { --platform-delay: -16.8s; align-items: center; animation: platform-cycle 16s cubic-bezier(.22, .75, .2, 1) infinite; animation-delay: var(--platform-delay); display: flex; flex-direction: column; gap: 14px; inset: 0; justify-content: center; opacity: 0; position: absolute; transform: translateY(34px); }
+.home-platform img { height: 165px; max-width: 210px; object-fit: contain; width: 100%; }
+.home-platform strong { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 650; letter-spacing: -.02em; }
 
-.home-solutions { padding-bottom: 130px; padding-top: 140px; }
+@keyframes platform-cycle {
+  0% { opacity: 0; transform: translateY(34px); }
+  5%, 20% { opacity: 1; transform: translateY(0); }
+  25%, 100% { opacity: 0; transform: translateY(-34px); }
+}
+
+.home-solutions { padding-bottom: 175px; padding-top: 140px; }
 .home-solutions__heading, .home-testimonials__heading { margin-bottom: 64px; text-align: center; }
 .home-solutions__heading .eyebrow, .home-testimonials__heading .eyebrow { margin-bottom: 15px; }
 .home-solutions__grid { display: grid; gap: clamp(20px, 2vw, 34px); grid-template-columns: repeat(3, 1fr); }
@@ -28,7 +34,7 @@
 .solution-card__action { align-items: center; bottom: 28px; display: flex; font-size: 11px; font-weight: 700; gap: 9px; position: absolute; right: 30px; transition: gap 180ms ease; }
 .solution-card:hover .solution-card__action { gap: 14px; }
 
-.home-trust { padding-bottom: 130px; text-align: center; }
+.home-trust { padding-bottom: 46px; text-align: center; }
 .home-trust > .eyebrow { margin-bottom: 26px; }
 
 .home-testimonials { background: #f5f5f5; padding: 130px 0; }
@@ -40,7 +46,7 @@
 .testimonial-card footer strong { font-size: 13px; }
 .testimonial-card footer span { color: #858585; font-size: 12px; }
 
-.home-cta { align-items: center; display: flex; flex-direction: column; padding-bottom: 150px; padding-top: 150px; text-align: center; }
+.home-cta { align-items: center; display: flex; flex-direction: column; padding-bottom: 150px; padding-top: 92px; text-align: center; }
 .home-cta h2 { font-size: clamp(42px, 6vw, 88px); font-weight: 650; letter-spacing: -.065em; line-height: 1; max-width: 1100px; }
 .home-cta > p { color: #777; font-size: 16px; margin-top: 28px; }
 .home-cta__actions { display: flex; gap: 12px; margin-top: 38px; }
@@ -82,6 +88,8 @@
 @media (max-width: 991px) {
   .home-hero { grid-template-columns: 1fr; min-height: 0; padding-top: 60px; }
   .home-hero__content { max-width: 780px; }
+  .home-integrations__inner { grid-template-columns: 1fr; }
+  .home-integrations__copy { margin-inline: auto; max-width: 680px; text-align: center; }
   .home-solutions__grid { grid-template-columns: repeat(2, 1fr); }
   .home-solutions__grid .solution-card:last-child { grid-column: 1 / -1; justify-self: center; max-width: calc(50% - 10px); }
   .home-testimonials__grid { grid-template-columns: 1fr; }
@@ -92,20 +100,28 @@
 @media (max-width: 767px) {
   .home-hero { gap: 50px; padding-bottom: 70px; padding-top: 42px; }
   .home-hero__content h1 { font-size: clamp(42px, 13vw, 66px); }
-  .home-stats__inner { grid-template-columns: 1fr; padding-bottom: 34px; padding-top: 34px; }
-  .home-stat { min-height: 150px; }
-  .home-stat + .home-stat { border-left: 0; border-top: 1px solid #d8d8d8; }
-  .home-solutions { padding-bottom: 90px; padding-top: 90px; }
+  .home-integrations__inner { gap: 18px; padding-bottom: 40px; padding-top: 36px; }
+  .home-integrations__stage { height: 150px; }
+  .home-platform { gap: 10px; }
+  .home-platform img { height: 112px; max-width: 140px; }
+  .home-platform strong { font-size: 14px; }
+  .home-integrations__copy h2 { font-size: clamp(18px, 5.2vw, 22px); }
+  .home-solutions { padding-bottom: 120px; padding-top: 90px; }
   .home-solutions__heading, .home-testimonials__heading { margin-bottom: 42px; }
   .home-solutions__grid { grid-template-columns: 1fr; }
   .home-solutions__grid .solution-card:last-child { grid-column: auto; max-width: none; }
   .solution-card { border-radius: 38px; }
-  .home-trust { padding-bottom: 90px; }
+  .home-trust { padding-bottom: 30px; }
   .home-testimonials { padding: 90px 0; }
-  .home-cta { padding-bottom: 100px; padding-top: 100px; }
+  .home-cta { padding-bottom: 100px; padding-top: 66px; }
   .home-cta__actions { align-items: stretch; flex-direction: column; width: min(100%, 330px); }
   .home-contact { padding: 90px 0; }
   .home-contact__layout { margin-top: 60px; }
   .contact-information__grid { grid-template-columns: 1fr; }
   .contact-form__row { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-integrations__stage { display: grid; gap: 12px; height: auto; }
+  .home-platform { animation: none; opacity: 1; position: static; transform: none; }
 }

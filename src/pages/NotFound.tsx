@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import Button from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
 import './NotFound.css';
@@ -11,8 +11,8 @@ export default function NotFound() {
 
   return (
     <section className="not-found site-container">
-      <Helmet><title>404 — {content.title}</title><meta name="robots" content="noindex" /></Helmet>
-      <span>404</span><h1>{content.title}</h1><p>{content.description}</p><Button to="/" variant="dark">{content.button}</Button>
+      <Seo title={`404 — ${content.title}`} description={content.description} robots="noindex,nofollow" />
+      <span>404</span><h1>{content.title}</h1><p>{content.description}</p><Button to={locale === 'fr' ? '/' : '/en/'} variant="dark">{content.button}</Button>
     </section>
   );
 }

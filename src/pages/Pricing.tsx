@@ -1,5 +1,5 @@
 import { ArrowRight, Check, CheckCircle2 } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import Button from '../components/Button';
 import { pricingContent } from '../content/pageContent';
 import { useLanguage } from '../context/LanguageContext';
@@ -11,11 +11,11 @@ export default function Pricing() {
 
   return (
     <>
-      <Helmet>
-        <title>{content.seo.title}</title><meta name="description" content={content.seo.description} />
-        <meta property="og:title" content={content.seo.title} /><meta property="og:description" content={content.seo.description} />
-        <meta property="og:url" content="https://ardittiproduction.com/pricing" /><meta property="og:image" content="https://ardittiproduction.com/og.png" />
-      </Helmet>
+      <Seo
+        title={content.seo.title}
+        description={content.seo.description}
+        type="WebSite"
+      />
 
       <section className="pricing-hero site-container">
         <p className="eyebrow">{content.eyebrow}</p>

@@ -1,8 +1,7 @@
-import { useState, type FormEvent } from 'react';
+import { useState, type CSSProperties, type FormEvent } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { Link, useSearchParams } from 'react-router-dom';
-import AnimatedCounter from '../components/AnimatedCounter';
 import Button from '../components/Button';
 import PartnerLogos from '../components/PartnerLogos';
 import { homeContent } from '../content/siteContent';
@@ -24,6 +23,7 @@ export default function Home() {
   const [searchParams] = useSearchParams();
   const selectedOffer = searchParams.get('offer');
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const localizePath = (path: string) => locale === 'en' ? `/en${path}` : path;
 
   const submitContactForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -51,14 +51,11 @@ export default function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>{content.seo.title}</title>
-        <meta name="description" content={content.seo.description} />
-        <meta property="og:title" content={content.seo.title} />
-        <meta property="og:description" content={content.seo.description} />
-        <meta property="og:url" content="https://ardittiproduction.com/" />
-        <meta property="og:image" content="https://ardittiproduction.com/og.png" />
-      </Helmet>
+      <Seo
+        title={content.seo.title}
+        description={content.seo.description}
+        type="WebSite"
+      />
 
       <section className="home-hero site-container">
         <div className="home-hero__content">
@@ -70,18 +67,23 @@ export default function Home() {
           <p>{content.hero.description}</p>
         </div>
         <div className="home-hero__image-wrap">
-          <img src="/assets/Hero_image.webp" alt="Fauteuil configuré en 3D dans un intérieur contemporain" fetchPriority="high" />
+          <img src="/assets/Hero_image.webp" alt={locale === 'fr' ? 'Fauteuil configuré en 3D dans un intérieur contemporain' : '3D-configured armchair in a contemporary interior'} fetchPriority="high" />
         </div>
       </section>
 
-      <section className="home-stats" aria-label="Résultats clients">
-        <div className="home-stats__inner site-container">
-          {content.stats.map((stat) => (
-            <div className="home-stat" key={stat.label}>
-              <strong><AnimatedCounter value={stat.value} /></strong>
-              <span>{stat.label}</span>
-            </div>
-          ))}
+      <section className="home-integrations" aria-labelledby="home-integrations-title">
+        <div className="home-integrations__inner site-container">
+          <div className="home-integrations__stage" aria-label={content.integrations.ariaLabel}>
+            {content.integrations.items.map((platform, index) => (
+              <div className="home-platform" style={{ '--platform-delay': `${((index - content.integrations.items.length) * 4) - 0.8}s` } as CSSProperties} key={platform.name}>
+                <img src={platform.logo} alt={platform.name} />
+                <strong>{platform.name}</strong>
+              </div>
+            ))}
+          </div>
+          <div className="home-integrations__copy">
+            <h2 id="home-integrations-title">{content.integrations.title}</h2>
+          </div>
         </div>
       </section>
 
@@ -92,7 +94,7 @@ export default function Home() {
         </div>
         <div className="home-solutions__grid">
           {content.solutions.items.map((solution) => (
-            <Link className="solution-card" to={solution.to} key={solution.to}>
+            <Link className="solution-card" to={localizePath(solution.to)} key={solution.to}>
               <div className="solution-card__image"><img src={solution.image} alt="" loading="lazy" /></div>
               <div className="solution-card__content">
                 <h3>{solution.title}</h3>
@@ -106,9 +108,10 @@ export default function Home() {
 
       <section className="home-trust site-container">
         <p className="eyebrow">{content.trust}</p>
-        <PartnerLogos />
+        <PartnerLogos ariaLabel={locale === 'fr' ? 'Marques partenaires' : 'Partner brands'} />
       </section>
 
+      {/* Testimonials section temporarily hidden
       <section className="home-testimonials">
         <div className="site-container">
           <div className="home-testimonials__grid">
@@ -122,6 +125,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       <section className="home-cta site-container">
         <h2>{content.cta.title}</h2>
@@ -162,7 +166,7 @@ export default function Home() {
             </div>
 
             <form className="contact-form" action="https://formspree.io/f/mjkedoyv" method="POST" onSubmit={submitContactForm}>
-              <input type="hidden" name="subject" value="Nouvelle demande depuis AR Production" />
+              <input type="hidden" name="subject" value={locale === 'fr' ? 'Nouvelle demande depuis AR Production' : 'New inquiry from AR Production'} />
               <label className="contact-form__trap" aria-hidden="true">Website<input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" /></label>
               {selectedOffer && <div className="contact-form__selection"><span>{content.contact.fields.selectedOffer}</span><strong>{selectedOffer}</strong><input type="hidden" name="offer" value={selectedOffer} /></div>}
               <label>{content.contact.fields.name}<input type="text" name="name" placeholder={content.contact.fields.namePlaceholder} autoComplete="name" required /></label>
@@ -184,7 +188,7 @@ export default function Home() {
               </Button>
               {formStatus === 'success' && <p className="contact-form__status is-success" role="status"><CheckCircle2 size={18} />{content.contact.fields.success}</p>}
               {formStatus === 'error' && <p className="contact-form__status is-error" role="alert">{content.contact.fields.error}</p>}
-              <p className="contact-form__privacy">{content.contact.fields.privacyPrefix} <Link to="/privacy">{content.contact.fields.privacyLink}</Link>.</p>
+              <p className="contact-form__privacy">{content.contact.fields.privacyPrefix} <Link to={localizePath('/privacy')}>{content.contact.fields.privacyLink}</Link>.</p>
             </form>
           </div>
         </div>

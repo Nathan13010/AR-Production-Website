@@ -1,16 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
-import { LanguageProvider } from './context/LanguageContext.tsx'
 import './styles/index.css'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const rootElement = document.getElementById('root')!
+const app = (
   <React.StrictMode>
     <HelmetProvider>
-      <LanguageProvider>
+      <BrowserRouter>
         <App />
-      </LanguageProvider>
+      </BrowserRouter>
     </HelmetProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+
+if (rootElement.childElementCount > 0) {
+  ReactDOM.hydrateRoot(rootElement, app)
+} else {
+  ReactDOM.createRoot(rootElement).render(app)
+}

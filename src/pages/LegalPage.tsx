@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import { legalContent } from '../content/legalContent';
@@ -28,11 +28,11 @@ export default function LegalPage({ kind }: { kind: LegalPageKind }) {
 
   return (
     <>
-      <Helmet>
-        <title>{page.title} — AR Production</title>
-        <meta name="description" content={page.intro} />
-        <meta name="robots" content="index,follow" />
-      </Helmet>
+      <Seo
+        title={page.title}
+        description={page.intro}
+        type="Article"
+      />
       <section className="legal-page site-container">
         <header className="legal-page__header">
           <p className="eyebrow">AR PRODUCTION</p>
@@ -58,7 +58,7 @@ export default function LegalPage({ kind }: { kind: LegalPageKind }) {
 
         <div className="legal-page__footer-links">
           {kind === 'legal' ? <Link to="/privacy">{legalContent[locale].privacy.title}</Link> : <Link to="/legal">{legalContent[locale].legal.title}</Link>}
-          <Link to="/">{locale === 'fr' ? 'Retour à l’accueil' : 'Back to home'}</Link>
+          <Link to={locale === 'fr' ? '/' : '/en/'}>{locale === 'fr' ? 'Retour à l’accueil' : 'Back to home'}</Link>
         </div>
       </section>
     </>
