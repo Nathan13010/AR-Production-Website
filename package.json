@@ -10,6 +10,7 @@
     "build:server": "vite build --ssr src/entry-server.tsx --outDir .ssr",
     "prerender": "node scripts/prerender.js",
     "lint": "oxlint src vite.config.ts",
+    "check:seo": "node scripts/verify-seo.mjs",
     "preview": "vite preview --outDir dist"
   },
   "dependencies": {

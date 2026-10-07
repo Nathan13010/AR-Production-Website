@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import { getRouteInfo } from '../content/routeManifest';
+import { useHydrated } from '../hooks/useHydrated';
 
 export type Locale = 'fr' | 'en';
 
@@ -14,9 +15,11 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(undefine
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
   const routeInfo = getRouteInfo(location.pathname);
+  const hydrated = useHydrated();
 
-  // Default to French if not found (e.g. 404 page), or we could extract it from path if it starts with /en/
-  const locale: Locale = routeInfo ? routeInfo.locale : (location.pathname.startsWith('/en/') ? 'en' : 'fr');
+  // Unknown URLs receive the shared French 404.html from the static host.
+  // Match it during hydration before localizing the error page in the browser.
+  const locale: Locale = routeInfo ? routeInfo.locale : (hydrated && location.pathname.startsWith('/en/') ? 'en' : 'fr');
 
   useEffect(() => {
     document.documentElement.lang = locale;

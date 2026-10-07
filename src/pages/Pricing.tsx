@@ -8,6 +8,8 @@ import './Pricing.css';
 export default function Pricing() {
   const { locale } = useLanguage();
   const content = pricingContent[locale];
+  const homePath = locale === 'en' ? '/en' : '/';
+  const demoPath = locale === 'en' ? '/en/demo' : '/demo';
 
   return (
     <>
@@ -48,7 +50,7 @@ export default function Pricing() {
                   </>
                 )}
                 <ul>{card.features.map((feature) => <li key={feature}><span><Check size={13} /></span>{feature}</li>)}</ul>
-                <Button href={`/?offer=${encodeURIComponent(`${section.title.replace(/^\d+\.\s*/, '')} — ${card.name}`)}#contact`} variant={'popular' in card && card.popular ? 'dark' : 'outline'} analyticsEvent="contact_click" analyticsLabel={`pricing_${section.title}_${card.name}`}>{card.button}<ArrowRight size={16} /></Button>
+                <Button href={`${homePath}?offer=${encodeURIComponent(`${section.title.replace(/^\d+\.\s*/, '')} — ${card.name}`)}#contact`} variant={'popular' in card && card.popular ? 'dark' : 'outline'} analyticsEvent="contact_click" analyticsLabel={`pricing_${section.title}_${card.name}`}>{card.button}<ArrowRight size={16} /></Button>
               </article>
             ))}
           </div>
@@ -99,7 +101,7 @@ export default function Pricing() {
       )}
 
       <section className="pricing-cta">
-        <div className="site-container"><h2>{content.cta.title}</h2><p>{content.cta.description}</p><div><Button href="/#contact" variant="secondary" analyticsEvent="contact_click" analyticsLabel="pricing_cta">{content.cta.primary}<ArrowRight size={16} /></Button>{content.cta.secondary && <Button to="/demo" variant="outline" className="pricing-cta__outline" analyticsEvent="demo_click" analyticsLabel="pricing_cta">{content.cta.secondary}</Button>}</div></div>
+        <div className="site-container"><h2>{content.cta.title}</h2><p>{content.cta.description}</p><div><Button href={`${homePath}#contact`} variant="secondary" analyticsEvent="contact_click" analyticsLabel="pricing_cta">{content.cta.primary}<ArrowRight size={16} /></Button>{content.cta.secondary && <Button to={demoPath} variant="outline" className="pricing-cta__outline" analyticsEvent="demo_click" analyticsLabel="pricing_cta">{content.cta.secondary}</Button>}</div></div>
       </section>
     </>
   );

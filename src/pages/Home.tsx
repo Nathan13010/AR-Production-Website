@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import PartnerLogos from '../components/PartnerLogos';
 import { homeContent } from '../content/siteContent';
 import { useLanguage } from '../context/LanguageContext';
+import { useHydrated } from '../hooks/useHydrated';
 import './Home.css';
 
 const contactIcons = {
@@ -21,9 +22,10 @@ export default function Home() {
   const { locale } = useLanguage();
   const content = homeContent[locale];
   const [searchParams] = useSearchParams();
-  const selectedOffer = searchParams.get('offer');
+  const hydrated = useHydrated();
+  const selectedOffer = hydrated ? searchParams.get('offer') : null;
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const localizePath = (path: string) => locale === 'en' ? `/en${path}` : path;
+  const localizePath = (path: string) => locale === 'en' ? (path === '/' ? '/en' : `/en${path}`) : path;
 
   const submitContactForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

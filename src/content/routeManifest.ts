@@ -11,7 +11,7 @@ export interface RouteInfo {
 
 export const routes: Record<Locale, Record<RouteId, RouteInfo>> = {
   fr: {
-    home: { id: 'home', locale: 'fr', path: '/', alternatePath: '/en/', isIndexable: true },
+    home: { id: 'home', locale: 'fr', path: '/', alternatePath: '/en', isIndexable: true },
     viewer: { id: 'viewer', locale: 'fr', path: '/viewer', alternatePath: '/en/viewer', isIndexable: true },
     configurator: { id: 'configurator', locale: 'fr', path: '/configurator', alternatePath: '/en/configurator', isIndexable: true },
     ar: { id: 'ar', locale: 'fr', path: '/ar', alternatePath: '/en/ar', isIndexable: true },
@@ -22,7 +22,7 @@ export const routes: Record<Locale, Record<RouteId, RouteInfo>> = {
     privacy: { id: 'privacy', locale: 'fr', path: '/privacy', alternatePath: '/en/privacy', isIndexable: true },
   },
   en: {
-    home: { id: 'home', locale: 'en', path: '/en/', alternatePath: '/', isIndexable: true },
+    home: { id: 'home', locale: 'en', path: '/en', alternatePath: '/', isIndexable: true },
     viewer: { id: 'viewer', locale: 'en', path: '/en/viewer', alternatePath: '/viewer', isIndexable: true },
     configurator: { id: 'configurator', locale: 'en', path: '/en/configurator', alternatePath: '/configurator', isIndexable: true },
     ar: { id: 'ar', locale: 'en', path: '/en/ar', alternatePath: '/ar', isIndexable: true },
@@ -36,12 +36,10 @@ export const routes: Record<Locale, Record<RouteId, RouteInfo>> = {
 
 export function getRouteInfo(pathname: string): RouteInfo | undefined {
   let normalizedPath = pathname;
-  // Handle trailing slashes gracefully but keep /en/ intact
-  if (normalizedPath.endsWith('/') && normalizedPath !== '/' && normalizedPath !== '/en/') {
+  // Match Vercel paths without trailing slashes, including /en.
+  if (normalizedPath.endsWith('/') && normalizedPath !== '/') {
     normalizedPath = normalizedPath.slice(0, -1);
   }
-  // In dev server, paths might start with /index.html. We usually strip it,
-  // but react router might handle it. Let's just strictly match the path.
 
   for (const locale of Object.values(routes)) {
     for (const route of Object.values(locale)) {

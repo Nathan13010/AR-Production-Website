@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <section className="not-found site-container">
       <Seo title={`404 — ${content.title}`} description={content.description} robots="noindex,nofollow" />
-      <span>404</span><h1>{content.title}</h1><p>{content.description}</p><Button to={locale === 'fr' ? '/' : '/en/'} variant="dark">{content.button}</Button>
+      <span>404</span><h1>{content.title}</h1><p>{content.description}</p><Button to={locale === 'fr' ? '/' : '/en'} variant="dark">{content.button}</Button>
     </section>
   );
 }

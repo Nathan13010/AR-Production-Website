@@ -20,10 +20,7 @@ export default function Seo({ title, description, type = 'WebSite', robots: cust
 
   // Canonical URL
   const domain = 'https://ardittiproduction.com';
-  let path = location.pathname;
-  if (path.endsWith('/') && path !== '/' && path !== '/en/') {
-    path = path.slice(0, -1);
-  }
+  const path = routeInfo?.path || location.pathname.replace(/\/$/, '') || '/';
   const canonicalUrl = `${domain}${path}`;
 
   // Hreflang setup
@@ -72,11 +69,11 @@ export default function Seo({ title, description, type = 'WebSite', robots: cust
       <meta name="description" content={description} />
       <meta name="robots" content={robots} />
 
-      <link rel="canonical" href={canonicalUrl} />
-      {frUrl && <link rel="alternate" hrefLang="fr" href={frUrl} />}
-      {enUrl && <link rel="alternate" hrefLang="en" href={enUrl} />}
+      {routeInfo && <link rel="canonical" href={canonicalUrl} />}
+      {hasAlternate && frUrl && <link rel="alternate" hrefLang="fr" href={frUrl} />}
+      {hasAlternate && enUrl && <link rel="alternate" hrefLang="en" href={enUrl} />}
       {/* x-default points to FR version as it's the root */}
-      {frUrl && <link rel="alternate" hrefLang="x-default" href={frUrl} />}
+      {hasAlternate && frUrl && <link rel="alternate" hrefLang="x-default" href={frUrl} />}
 
       <meta property="og:type" content={type === 'Article' ? 'article' : 'website'} />
       <meta property="og:title" content={fullTitle} />

@@ -11,6 +11,7 @@ const benefitIcons = { dark: PanelsTopLeft, light: Headphones } as const;
 export default function Partnership() {
   const { locale } = useLanguage();
   const content = partnershipContent[locale];
+  const homePath = locale === 'en' ? '/en' : '/';
   const brochure = locale === 'fr' ? '/assets/Programme_Partenaires_AR_Production.pdf' : '/assets/Partner_Program_AR_Production.pdf';
 
   return (
@@ -31,7 +32,7 @@ export default function Partnership() {
             <p>{content.description} <em>{content.promise}</em></p>
             <div className="partnership-hero__actions">
               <Button href={brochure} target="_blank" rel="noreferrer" variant="secondary">{content.download}<Download size={16} /></Button>
-              <Button href="/#contact" variant="outline" className="partnership-hero__contact" analyticsEvent="contact_click" analyticsLabel="partnership_hero">{content.contact}</Button>
+              <Button href={`${homePath}#contact`} variant="outline" className="partnership-hero__contact" analyticsEvent="contact_click" analyticsLabel="partnership_hero">{content.contact}</Button>
             </div>
           </div>
           <div className="partnership-visual">
@@ -64,7 +65,7 @@ export default function Partnership() {
       </section>
 
       <section className="partnership-cta">
-        <div className="site-container"><h2>{content.cta.title}</h2><p>{content.cta.description}</p><div><Button href="/#contact" variant="dark" analyticsEvent="contact_click" analyticsLabel="partnership_cta">{content.cta.primary}<ArrowRight size={16} /></Button>{content.cta.secondary && <Button href={brochure} target="_blank" rel="noreferrer" variant="outline">{content.cta.secondary}<Download size={16} /></Button>}</div></div>
+        <div className="site-container"><h2>{content.cta.title}</h2><p>{content.cta.description}</p><div><Button href={`${homePath}#contact`} variant="dark" analyticsEvent="contact_click" analyticsLabel="partnership_cta">{content.cta.primary}<ArrowRight size={16} /></Button>{content.cta.secondary && <Button href={brochure} target="_blank" rel="noreferrer" variant="outline">{content.cta.secondary}<Download size={16} /></Button>}</div></div>
       </section>
     </>
   );

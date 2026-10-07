@@ -22,13 +22,14 @@ export default function Layout() {
   // Helper for localized links
   const getLocalizedPath = (path: string) => {
     if (locale === 'fr') return path;
-    if (path === '/') return '/en/';
+    if (path === '/') return '/en';
     return `/en${path}`;
   };
 
   const routeInfo = getRouteInfo(location.pathname);
-  const frUrl = locale === 'fr' ? location.pathname : (routeInfo?.alternatePath || '/');
-  const enUrl = locale === 'en' ? location.pathname : (routeInfo?.alternatePath || '/en/');
+  const suffix = location.search + location.hash;
+  const frUrl = (locale === 'fr' ? (routeInfo?.path || location.pathname) : (routeInfo?.alternatePath || '/')) + suffix;
+  const enUrl = (locale === 'en' ? (routeInfo?.path || location.pathname) : (routeInfo?.alternatePath || '/en')) + suffix;
 
   useEffect(() => {
     if (!location.hash) {

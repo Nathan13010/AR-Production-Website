@@ -9,7 +9,7 @@ export default function Footer() {
   const content = sharedContent[locale].footer;
   const getLocalizedPath = (path: string) => {
     if (locale === 'fr') return path;
-    if (path === '/') return '/en/';
+    if (path === '/') return '/en';
     return `/en${path}`;
   };
 

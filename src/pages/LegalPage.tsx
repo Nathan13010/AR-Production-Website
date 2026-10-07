@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import { legalContent } from '../content/legalContent';
 import { useLanguage } from '../context/LanguageContext';
+import { useHydrated } from '../hooks/useHydrated';
 import './LegalPage.css';
 
 type LegalPageKind = 'legal' | 'privacy';
@@ -11,10 +12,12 @@ type LegalPageKind = 'legal' | 'privacy';
 export default function LegalPage({ kind }: { kind: LegalPageKind }) {
   const { locale } = useLanguage();
   const page = legalContent[locale][kind];
-  const [analyticsDisabled, setAnalyticsDisabled] = useState(() => {
+  const hydrated = useHydrated();
+  const [storedAnalyticsDisabled, setAnalyticsDisabled] = useState(() => {
     try { return localStorage.getItem('ar-analytics-opt-out') === 'true'; }
     catch { return false; }
   });
+  const analyticsDisabled = hydrated && storedAnalyticsDisabled;
 
   const toggleAnalytics = () => {
     const nextValue = !analyticsDisabled;
@@ -57,8 +60,8 @@ export default function LegalPage({ kind }: { kind: LegalPageKind }) {
         </div>
 
         <div className="legal-page__footer-links">
-          {kind === 'legal' ? <Link to="/privacy">{legalContent[locale].privacy.title}</Link> : <Link to="/legal">{legalContent[locale].legal.title}</Link>}
-          <Link to={locale === 'fr' ? '/' : '/en/'}>{locale === 'fr' ? 'Retour à l’accueil' : 'Back to home'}</Link>
+          {kind === 'legal' ? <Link to={locale === 'en' ? '/en/privacy' : '/privacy'}>{legalContent[locale].privacy.title}</Link> : <Link to={locale === 'en' ? '/en/legal' : '/legal'}>{legalContent[locale].legal.title}</Link>}
+          <Link to={locale === 'fr' ? '/' : '/en'}>{locale === 'fr' ? 'Retour à l’accueil' : 'Back to home'}</Link>
         </div>
       </section>
     </>

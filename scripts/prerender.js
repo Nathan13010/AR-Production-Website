@@ -44,7 +44,7 @@ const { render, routes } = await import(pathToFileURL(toAbsolute('.ssr/entry-ser
       .replace('<!--app-html-->', html)
       .replace('lang="fr"', `lang="${url.startsWith('/en') ? 'en' : 'fr'}"`);
 
-    const filePath = url === '/' || url === '/en/'
+    const filePath = url === '/' || url === '/en'
       ? `${url === '/' ? '/index.html' : '/en/index.html'}`
       : url === '/404'
       ? '/404.html'

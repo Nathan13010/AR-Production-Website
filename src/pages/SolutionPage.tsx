@@ -24,7 +24,7 @@ export default function SolutionPage({ kind }: { kind: SolutionKind }) {
   const content = localized[kind];
   const arTitleParts = kind === 'ar' ? [content.title.slice(0, content.title.indexOf(':') + 1), content.title.slice(content.title.indexOf(':') + 1).trim()] : null;
   const ctaTitleParts = locale === 'fr' ? ['Prêt à transformer', 'votre expérience client ?'] : ['Ready to transform', 'your customer experience?'];
-  const localizePath = (path: string) => locale === 'en' ? `/en${path}` : path;
+  const localizePath = (path: string) => locale === 'en' ? (path === '/' ? '/en' : `/en${path}`) : path;
 
   const getPoster = () => {
     switch (kind) {
