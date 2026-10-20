@@ -12,7 +12,7 @@ export const partnerLogos = [
 export const demos = [
   { id: 'calisson', name: 'Calisson Chair', thumbnail: '/assets/Calisson_chair_VoK0hqZ5pzQRHWsSupFCs.webp', url: 'https://cdn.soft8soft.com/AROAJSY2GOEHMOFUVPIOE:e577ee4a7d/Tablacasa-Chaise-Calisson%20-%20API/Tablacasa-Chaise-Calisson.html?hideprice', categories: ['configurator'] },
   { id: 'omega-speedmaster', name: 'Omega Speedmaster', thumbnail: '/assets/omega_speedmaster_picture.webp', url: 'https://omega-speedmaster-3d.vercel.app/', categories: ['viewer'] },
-  { id: 'diamond-ring', name: 'Blue Diamond Ring', thumbnail: '/assets/blue_diamond_ring_1_-hZ-SqAWcAXdufX_Sfip5.webp', url: 'https://blue-diamond-ring-configurator.vercel.app/', categories: ['configurator'] },
+  { id: 'diamond-ring', name: 'Blue Diamond Ring', thumbnail: '/assets/blue_diamond_ring_1_-hZ-SqAWcAXdufX_Sfip5.webp', url: 'https://ar-jewelry-engine.vercel.app/configurator.html?product=ring-002&cfg.metal=white-gold&cfg.stone=white-diamond', categories: ['configurator'] },
   { id: 'birkin', name: 'Hermès Birkin', thumbnail: '/assets/hermess_birkin_QEx75WCnZvp13vAawtgY5.webp', url: 'https://hermes-birkin.vercel.app', categories: ['configurator'] },
   { id: 'firenze', name: 'Firenze Sofa', thumbnail: '/assets/firenze_sofa_4airUV4Phx-Aq4w-CxqzQ.webp', url: 'https://mf-international-firenze.vercel.app/', categories: ['configurator', 'ar'] },
   { id: 'cloudflyer', name: 'Cloudflyer 4', thumbnail: '/assets/cloudflyer-4__xbgRx9gM_rtcjhIQsSbi.webp', url: 'https://cloudflyer-4.vercel.app/', categories: ['viewer', 'ar'] },
